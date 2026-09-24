@@ -1,13 +1,14 @@
 import { createAuthClient } from '@neondatabase/auth'
 import { BetterAuthVanillaAdapter } from '@neondatabase/auth/vanilla/adapters'
 
-const authUrl = import.meta.env.VITE_NEON_AUTH_URL as string | undefined
-
-if (!authUrl) {
-  throw new Error('VITE_NEON_AUTH_URL is required.')
-}
-
-const configuredAuthUrl = authUrl
+// Neon Auth's client URL is public (like the API URL), so keeping a deployed
+// fallback makes static hosts work even when they do not receive local .env files.
+const DEFAULT_NEON_AUTH_URL =
+  'https://ep-raspy-bonus-b5fun27l.neonauth.c-7.us-east-2.aws.neon.tech/neondb/auth'
+const configuredAuthUrl = (
+  (import.meta.env.VITE_NEON_AUTH_URL as string | undefined)
+  || DEFAULT_NEON_AUTH_URL
+).replace(/\/$/, '')
 
 export const authClient = createAuthClient(configuredAuthUrl, {
   adapter: BetterAuthVanillaAdapter({
@@ -20,7 +21,7 @@ export class AuthSessionError extends Error {
 }
 
 export async function getAccessToken(): Promise<string> {
-  const response = await fetch(`${configuredAuthUrl.replace(/\/$/, '')}/token`, {
+  const response = await fetch(`${configuredAuthUrl}/token`, {
     credentials: 'include',
     headers: { Accept: 'application/json' },
   })
