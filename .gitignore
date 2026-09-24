@@ -1,0 +1,8 @@
+node_modules/
+.node_modules-incomplete/
+dist/
+*.tsbuildinfo
+.vite/
+.neon
+.env.local
+*.log

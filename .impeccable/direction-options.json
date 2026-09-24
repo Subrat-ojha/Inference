@@ -1,0 +1,107 @@
+{
+  "title": "Choose the tracker’s visual world",
+  "question": "Pick the working surface for your eight-week inference roadmap. Every option stays intentionally focused and minimal.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Benchmark Ledger",
+      "kicker": "THE ROLL",
+      "lineage": "inference benchmark result sheets and lab run logs",
+      "thesis": "Treat the roadmap like a sequence of measured runs whose evidence, not optimism, marks progress.",
+      "palette": ["#f5f4ef", "#151713", "#2c5f4a", "#b7c7bb"],
+      "materials": ["ruled result sheet", "status ink", "tabular figures"],
+      "viewport": "A slim progress rail anchors a full-width eight-row ledger; the current week opens inline with its deliverables and notes.",
+      "risk": "Can feel clinical if the notes and current-focus treatment do not provide enough warmth.",
+      "raised": [
+        {"from": "Teletext Service", "raise": "Weeks receive direct numeric addressing and strong keyboard navigation."},
+        {"from": "HyperCard Stack", "raise": "Notes and task state remain editable in place instead of opening a management layer."},
+        {"from": "Origami Sequence", "raise": "Completed work leaves a legible evidence trail rather than disappearing into a percentage."},
+        {"from": "Calendar Pad", "raise": "The current week is unmistakably marked while past work visually recedes."}
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "Engineer’s Field Log",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "bound engineering notebooks and annotated runbooks",
+      "thesis": "Each week is a compact field entry: intent, proof produced, and the next operational question.",
+      "palette": ["#f0ebdc", "#1c2924", "#be5a3a", "#9fa99c"],
+      "materials": ["graph paper", "margin marks", "pencil annotations"],
+      "viewport": "A quiet index margin sits beside one open weekly log, with completion marks accumulating down the binding edge.",
+      "risk": "The notebook metaphor is familiar and can become decorative if the task controls are not disciplined.",
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-teletext",
+      "label": "Teletext Service",
+      "verdict": "competitive",
+      "lineage": "broadcast teletext status pages",
+      "thesis": "The roadmap becomes eight directly addressable status pages with progress broadcast in a rigid live grid.",
+      "palette": ["#050505", "#f6eb43", "#47d7c8", "#f5f5f0"],
+      "materials": ["bitmap cells", "broadcast status colors", "page codes"],
+      "viewport": "A 40-column progress index lists W01–W08; selecting a number reveals that week without changing the grid.",
+      "case": "Strong engineer identification and direct state visibility; loses some calm and prose readability.",
+      "risk": "Can read as retro novelty and constrain longer notes.",
+      "comp": ".impeccable/mocks/decision/challenger-teletext.webp",
+      "hero": "https://impeccable.style/worlds/cards/broadcast-programming-teletext-service-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/broadcast-programming-teletext-service.webp"
+    },
+    {
+      "id": "challenger-hypercard",
+      "label": "HyperCard Stack",
+      "verdict": "competitive",
+      "lineage": "editable black-and-white HyperCard stacks",
+      "thesis": "Each week is an editable card in a personal stack with a truthful trail back through completed work.",
+      "palette": ["#ffffff", "#111111", "#b7b7b7"],
+      "materials": ["one-bit pixels", "painted buttons", "dithered fields"],
+      "viewport": "A fixed-proportion week card leads while an exposed stack edge shows all eight stages and completion state.",
+      "case": "Excellent personal-tool character and in-place editing; weaker at whole-roadmap comparison.",
+      "risk": "The fixed card frame can hide cross-week progress on small screens.",
+      "comp": ".impeccable/mocks/decision/challenger-hypercard.webp",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-hypercard-stack-shoebox-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/medium-native-hypercard-stack-shoebox.webp"
+    },
+    {
+      "id": "challenger-calendar",
+      "label": "Calendar Pad",
+      "verdict": "declined",
+      "lineage": "tear-off wall calendars",
+      "thesis": "Each completed week tears forward through the roadmap.",
+      "palette": ["#f5eddc", "#24221e", "#ae3e32", "#b99045"],
+      "materials": ["paper leaves", "printed rings", "thin rules"],
+      "viewport": "A large current-week leaf sits above an eight-week date grid.",
+      "case": "The time axis is clear, but the physical-calendar identity obscures portfolio evidence.",
+      "kept": "Past work recedes and the current step receives one unmistakable marker.",
+      "risk": "Completion can feel like discarding work rather than accumulating proof.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-calendar-pinup-pad-hero.webp"
+    },
+    {
+      "id": "challenger-origami",
+      "label": "Origami Sequence",
+      "verdict": "declined",
+      "lineage": "numbered instructional fold diagrams",
+      "thesis": "Every completed deliverable becomes a visible crease in one continuous transformation.",
+      "palette": ["#f4efe4", "#c93c32", "#1d1d1a", "#c9a342"],
+      "materials": ["washi fiber", "crease notation", "sumi notes"],
+      "viewport": "Eight numbered folds surround the active step and its concrete output.",
+      "case": "Sequence and accumulated progress fit, but the metaphor competes with technical information.",
+      "kept": "Every completed action leaves a visible trace in the final state.",
+      "risk": "A literal fold interaction would add complexity without improving the tracking task.",
+      "hero": "https://impeccable.style/worlds/cards/paper-folds-pleats-deployable-orizuru-crane-sequence-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "comp", "toggle": true},
+  "canon": true,
+  "canonCard": {
+    "label": "Minimal SaaS dashboard",
+    "thesis": "A conventional sidebar, progress cards, and checklist rendered with careful restraint.",
+    "palette": ["#ffffff", "#111827", "#2563eb", "#e5e7eb"],
+    "materials": ["neutral cards", "soft borders", "standard progress bars"],
+    "viewport": "Summary cards sit above a two-column weekly task dashboard.",
+    "risk": "Immediately familiar, but indistinguishable from generic productivity software.",
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}

@@ -1,0 +1,45 @@
+{
+  "title": "Choose the tracker composition",
+  "question": "All three use the Benchmark Ledger direction. Choose the layout that should become the working app.",
+  "options": [
+    {
+      "id": "expanded-ledger",
+      "label": "Expanded ledger",
+      "kicker": "OPTION 01",
+      "lineage": "continuous benchmark results sheet",
+      "thesis": "See all eight weeks at once, with the current week opening directly inside the ledger.",
+      "palette": ["#f5f4ef", "#151713", "#2c5f4a", "#b7c7bb"],
+      "materials": ["ruled result sheet", "status ink", "tabular figures"],
+      "viewport": "One full-width eight-row ledger; the current row expands into deliverables, proof, hours, and notes.",
+      "risk": "The expanded row needs careful responsive reflow on narrow screens.",
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "week-strip",
+      "label": "Week strip + work sheet",
+      "kicker": "OPTION 02",
+      "lineage": "two-register laboratory run log",
+      "thesis": "Use an eight-cell progress strip above one spacious active-week work sheet.",
+      "palette": ["#f5f4ef", "#151713", "#2c5f4a", "#b7c7bb"],
+      "materials": ["ruled result sheet", "status ink", "tabular figures"],
+      "viewport": "A compact eight-week strip sits above a three-column current-week sheet and a next-week preview.",
+      "risk": "The week strip can become dense on phones and must collapse cleanly.",
+      "comp": ".impeccable/mocks/option-2.webp"
+    },
+    {
+      "id": "indexed-sheet",
+      "label": "Indexed run sheet",
+      "kicker": "OPTION 03",
+      "lineage": "indexed engineering notebook",
+      "thesis": "Keep the eight-week index visible beside a task-first active run sheet.",
+      "palette": ["#f5f4ef", "#151713", "#2c5f4a", "#b7c7bb"],
+      "materials": ["ruled result sheet", "status ink", "tabular figures"],
+      "viewport": "A narrow week index anchors three large deliverable bands with integrated evidence fields.",
+      "risk": "The index reads like a sidebar unless its ledger rules stay visually continuous.",
+      "comp": ".impeccable/mocks/option-3.webp"
+    }
+  ],
+  "reroll": false,
+  "canon": false,
+  "steer": false
+}

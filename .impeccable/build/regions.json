@@ -1,0 +1,64 @@
+{
+  "regions": [
+    {
+      "id": "masthead-title",
+      "kind": "text",
+      "grid": "A0:C0",
+      "note": "Inference Track title at upper left"
+    },
+    {
+      "id": "masthead-progress",
+      "kind": "control",
+      "grid": "D0:F0",
+      "note": "Overall completion label and progress rule"
+    },
+    {
+      "id": "masthead-current",
+      "kind": "text",
+      "grid": "H0:J0",
+      "note": "Current week marker at upper right"
+    },
+    {
+      "id": "ledger-heading",
+      "kind": "chrome",
+      "grid": "A1:J1",
+      "note": "Column headings and first compact roadmap row"
+    },
+    {
+      "id": "ledger-upper",
+      "kind": "chrome",
+      "grid": "A2:J2",
+      "note": "Second roadmap row and active week header"
+    },
+    {
+      "id": "active-tasks",
+      "kind": "control",
+      "grid": "A3:C6",
+      "note": "Active week deliverables checklist"
+    },
+    {
+      "id": "active-proof",
+      "kind": "chrome",
+      "grid": "D3:F6",
+      "note": "Active week proof-of-work field and help text"
+    },
+    {
+      "id": "active-pace",
+      "kind": "control",
+      "grid": "G3:J6",
+      "note": "Hours, progress, and notes controls"
+    },
+    {
+      "id": "ledger-lower-a",
+      "kind": "chrome",
+      "grid": "A7:J8",
+      "note": "Roadmap weeks four through six"
+    },
+    {
+      "id": "ledger-lower-b",
+      "kind": "chrome",
+      "grid": "A9:J9",
+      "note": "Roadmap weeks seven and eight at the lower edge"
+    }
+  ]
+}

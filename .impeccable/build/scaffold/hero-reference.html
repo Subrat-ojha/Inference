@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Scaffold reference: option-1.webp</title>
+  <link rel="stylesheet" href="layout.css">
+  <style>html,body{margin:0}body{background:#f7f7f7}.region{box-sizing:border-box}.region.text p{white-space:pre-wrap}</style>
+</head>
+<body>
+<!-- Reference only. Every region sits at its measured box inside a comp-aspect frame. Take the boxes (layout.css), keep your own semantic structure. -->
+<main class="comp-frame" style="max-width:1586px">
+  <div class="r-masthead-title region text" data-region="masthead-title"><!-- Inference Track title at upper left --><p style="line-height:1.05;margin:0">masthead-title</p></div>
+  <div class="r-masthead-progress region control" data-region="masthead-progress"><!-- Overall completion label and progress rule: rebuild the control's chrome from the crop (comp-spec.mjs --crop masthead-progress); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-masthead-current region text" data-region="masthead-current"><!-- Current week marker at upper right --><p style="line-height:1.05;margin:0">masthead-current</p></div>
+  <div class="r-ledger-heading region chrome" data-region="ledger-heading"><!-- Column headings and first compact roadmap row --></div>
+  <div class="r-ledger-upper region chrome" data-region="ledger-upper"><!-- Second roadmap row and active week header --></div>
+  <div class="r-active-tasks region control" data-region="active-tasks"><!-- Active week deliverables checklist: rebuild the control's chrome from the crop (comp-spec.mjs --crop active-tasks); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-active-proof region chrome" data-region="active-proof"><!-- Active week proof-of-work field and help text --></div>
+  <div class="r-active-pace region control" data-region="active-pace"><!-- Hours, progress, and notes controls: rebuild the control's chrome from the crop (comp-spec.mjs --crop active-pace); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-ledger-lower-a region chrome" data-region="ledger-lower-a"><!-- Roadmap weeks four through six --></div>
+  <div class="r-ledger-lower-b region chrome" data-region="ledger-lower-b"><!-- Roadmap weeks seven and eight at the lower edge --></div>
+</main>
+</body>
+</html>

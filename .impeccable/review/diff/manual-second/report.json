@@ -1,0 +1,1938 @@
+{
+  "tool": "comp-diff",
+  "version": 1,
+  "createdAt": "2026-09-21T22:26:42.483Z",
+  "label": "hero-repro",
+  "comp": ".impeccable\\mocks\\option-1.webp",
+  "build": ".impeccable\\review\\hero-repro.png",
+  "spec": ".impeccable\\build\\spec.json",
+  "compSize": "1586x992",
+  "buildSize": "1571x982",
+  "align": "top",
+  "overall": 0.8154,
+  "verdict": "match",
+  "scores": {
+    "overall": 0.8154,
+    "structure": 0.8059,
+    "color": 0.9723,
+    "colorIntersection": 0.9535,
+    "paletteMatch": 0.9824,
+    "detail": 0.6038,
+    "detailRaw": 0.635,
+    "detailAdded": 0.0625,
+    "bands": 0.9292
+  },
+  "palette": {
+    "comp": [
+      {
+        "hex": "#f7f7f7",
+        "coverage": 0.9557
+      },
+      {
+        "hex": "#b6bcbc",
+        "coverage": 0.0178
+      },
+      {
+        "hex": "#818382",
+        "coverage": 0.0134
+      },
+      {
+        "hex": "#4c5050",
+        "coverage": 0.0062
+      },
+      {
+        "hex": "#161b1b",
+        "coverage": 0.0047
+      },
+      {
+        "hex": "#388058",
+        "coverage": 0.0022
+      }
+    ],
+    "build": [
+      {
+        "hex": "#f7f7f7",
+        "coverage": 0.9729
+      },
+      {
+        "hex": "#b0b7b1",
+        "coverage": 0.019
+      },
+      {
+        "hex": "#7e7e7e",
+        "coverage": 0.0037
+      },
+      {
+        "hex": "#286848",
+        "coverage": 0.0036
+      },
+      {
+        "hex": "#282828",
+        "coverage": 0.0008
+      }
+    ]
+  },
+  "regions": [
+    {
+      "id": "app-title",
+      "x": 0.0151,
+      "y": 0.0121,
+      "w": 0.1816,
+      "h": 0.0423,
+      "kind": "text",
+      "score": {
+        "overall": 0.5244,
+        "structure": 0.3949,
+        "color": 0.8105,
+        "colorIntersection": 0.7023,
+        "paletteMatch": 0.8688,
+        "detail": 0.5354,
+        "detailRaw": 0.6239,
+        "detailAdded": 0.1771,
+        "bands": 0.44
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 11,
+          "w": 268,
+          "h": 24
+        },
+        "build": {
+          "x": 9,
+          "y": 8,
+          "w": 279,
+          "h": 40
+        }
+      }
+    },
+    {
+      "id": "overall-label",
+      "x": 0.3758,
+      "y": 0.0121,
+      "w": 0.0946,
+      "h": 0.0484,
+      "kind": "text",
+      "score": {
+        "overall": 0.549,
+        "structure": 0.648,
+        "color": 0.8125,
+        "colorIntersection": 0.6683,
+        "paletteMatch": 0.8902,
+        "detail": 0.0001,
+        "detailRaw": 0.146,
+        "detailAdded": 0.2917,
+        "bands": 0.2185
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 11,
+          "y": 6,
+          "w": 132,
+          "h": 33
+        },
+        "build": {
+          "x": 0,
+          "y": 14,
+          "w": 122,
+          "h": 31
+        }
+      }
+    },
+    {
+      "id": "overall-progress",
+      "x": 0.3758,
+      "y": 0.0121,
+      "w": 0.0946,
+      "h": 0.0484,
+      "kind": "control",
+      "score": {
+        "overall": 0.576,
+        "structure": 0.648,
+        "color": 0.8125,
+        "colorIntersection": 0.6683,
+        "paletteMatch": 0.8902,
+        "detail": 0.0001,
+        "detailRaw": 0.146,
+        "detailAdded": 0.2917,
+        "bands": 0.2185
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 11,
+          "y": 6,
+          "w": 132,
+          "h": 33
+        },
+        "build": {
+          "x": 0,
+          "y": 14,
+          "w": 122,
+          "h": 31
+        }
+      }
+    },
+    {
+      "id": "current-week",
+      "x": 0.8512,
+      "y": 0.0181,
+      "w": 0.1324,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.6161,
+        "structure": 0.6447,
+        "color": 0.9067,
+        "colorIntersection": 0.8651,
+        "paletteMatch": 0.9291,
+        "detail": 0.1141,
+        "detailRaw": 0.2651,
+        "detailAdded": 0.3021,
+        "bands": 0.5
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 17,
+          "w": 194,
+          "h": 15
+        },
+        "build": {
+          "x": 25,
+          "y": 12,
+          "w": 164,
+          "h": 36
+        }
+      }
+    },
+    {
+      "id": "header-week",
+      "x": 0.0265,
+      "y": 0.1421,
+      "w": 0.0265,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.6481,
+        "structure": 0.7592,
+        "color": 0.8822,
+        "colorIntersection": 0.8681,
+        "paletteMatch": 0.8898,
+        "detail": 0.053,
+        "detailRaw": 0.0999,
+        "detailAdded": 0.0938,
+        "bands": 0.4
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 14,
+          "w": 25,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 24,
+          "w": 15,
+          "h": 14
+        }
+      }
+    },
+    {
+      "id": "header-focus",
+      "x": 0.0757,
+      "y": 0.1421,
+      "w": 0.0794,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.5899,
+        "structure": 0.6164,
+        "color": 0.8879,
+        "colorIntersection": 0.8254,
+        "paletteMatch": 0.9215,
+        "detail": 0.1048,
+        "detailRaw": 0.2142,
+        "detailAdded": 0.2188,
+        "bands": 0.44
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 15,
+          "w": 109,
+          "h": 16
+        },
+        "build": {
+          "x": 5,
+          "y": 24,
+          "w": 94,
+          "h": 13
+        }
+      }
+    },
+    {
+      "id": "header-outcome",
+      "x": 0.3209,
+      "y": 0.1421,
+      "w": 0.2308,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.6611,
+        "structure": 0.8068,
+        "color": 0.8934,
+        "colorIntersection": 0.8575,
+        "paletteMatch": 0.9127,
+        "detail": 0.007,
+        "detailRaw": 0.1737,
+        "detailAdded": 0.3333,
+        "bands": 0.3333
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 15,
+          "w": 349,
+          "h": 17
+        },
+        "build": {
+          "x": 0,
+          "y": 24,
+          "w": 299,
+          "h": 15
+        }
+      }
+    },
+    {
+      "id": "header-status",
+      "x": 0.7718,
+      "y": 0.0998,
+      "w": 0.0605,
+      "h": 0.0786,
+      "kind": "text",
+      "score": {
+        "overall": 0.6071,
+        "structure": 0.6666,
+        "color": 0.908,
+        "colorIntersection": 0.8766,
+        "paletteMatch": 0.9249,
+        "detail": 0.1229,
+        "detailRaw": 0.2219,
+        "detailAdded": 0.1979,
+        "bands": 0.2833
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 72
+        },
+        "build": {
+          "x": 1,
+          "y": 4,
+          "w": 74,
+          "h": 74
+        }
+      }
+    },
+    {
+      "id": "header-hours",
+      "x": 0.8796,
+      "y": 0.0998,
+      "w": 0.0416,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.6166,
+        "structure": 0.7136,
+        "color": 0.8792,
+        "colorIntersection": 0.8308,
+        "paletteMatch": 0.9053,
+        "detail": 0,
+        "detailRaw": 0.0234,
+        "detailAdded": 0.0521,
+        "bands": 0.4
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 5,
+          "w": 66,
+          "h": 30
+        },
+        "build": {
+          "x": 0,
+          "y": 11,
+          "w": 10,
+          "h": 8
+        }
+      }
+    },
+    {
+      "id": "week-01",
+      "x": 0.0757,
+      "y": 0.1421,
+      "w": 0.0794,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.5899,
+        "structure": 0.6164,
+        "color": 0.8879,
+        "colorIntersection": 0.8254,
+        "paletteMatch": 0.9215,
+        "detail": 0.1048,
+        "detailRaw": 0.2142,
+        "detailAdded": 0.2188,
+        "bands": 0.44
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 15,
+          "w": 109,
+          "h": 16
+        },
+        "build": {
+          "x": 5,
+          "y": 24,
+          "w": 94,
+          "h": 13
+        }
+      }
+    },
+    {
+      "id": "outcome-01",
+      "x": 0.3209,
+      "y": 0.1421,
+      "w": 0.2308,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.6611,
+        "structure": 0.8068,
+        "color": 0.8934,
+        "colorIntersection": 0.8575,
+        "paletteMatch": 0.9127,
+        "detail": 0.007,
+        "detailRaw": 0.1737,
+        "detailAdded": 0.3333,
+        "bands": 0.3333
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 15,
+          "w": 349,
+          "h": 17
+        },
+        "build": {
+          "x": 0,
+          "y": 24,
+          "w": 299,
+          "h": 15
+        }
+      }
+    },
+    {
+      "id": "state-01",
+      "x": 0.7718,
+      "y": 0.0998,
+      "w": 0.0605,
+      "h": 0.0786,
+      "kind": "control",
+      "score": {
+        "overall": 0.6424,
+        "structure": 0.6666,
+        "color": 0.908,
+        "colorIntersection": 0.8766,
+        "paletteMatch": 0.9249,
+        "detail": 0.1229,
+        "detailRaw": 0.2219,
+        "detailAdded": 0.1979,
+        "bands": 0.2833
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 72
+        },
+        "build": {
+          "x": 1,
+          "y": 4,
+          "w": 74,
+          "h": 74
+        }
+      }
+    },
+    {
+      "id": "hours-01",
+      "x": 0.8796,
+      "y": 0.0998,
+      "w": 0.0416,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.6166,
+        "structure": 0.7136,
+        "color": 0.8792,
+        "colorIntersection": 0.8308,
+        "paletteMatch": 0.9053,
+        "detail": 0,
+        "detailRaw": 0.0234,
+        "detailAdded": 0.0521,
+        "bands": 0.4
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 5,
+          "w": 66,
+          "h": 30
+        },
+        "build": {
+          "x": 0,
+          "y": 11,
+          "w": 10,
+          "h": 8
+        }
+      }
+    },
+    {
+      "id": "week-02",
+      "x": 0.0757,
+      "y": 0.2722,
+      "w": 0.1242,
+      "h": 0.0272,
+      "kind": "text",
+      "score": {
+        "overall": 0.594,
+        "structure": 0.597,
+        "color": 0.8884,
+        "colorIntersection": 0.8325,
+        "paletteMatch": 0.9185,
+        "detail": 0.196,
+        "detailRaw": 0.347,
+        "detailAdded": 0.3021,
+        "bands": 0.44
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 16,
+          "w": 187,
+          "h": 21
+        },
+        "build": {
+          "x": 5,
+          "y": 24,
+          "w": 179,
+          "h": 18
+        }
+      }
+    },
+    {
+      "id": "outcome-02",
+      "x": 0.3209,
+      "y": 0.2722,
+      "w": 0.261,
+      "h": 0.0272,
+      "kind": "text",
+      "score": {
+        "overall": 0.662,
+        "structure": 0.771,
+        "color": 0.9405,
+        "colorIntersection": 0.8947,
+        "paletteMatch": 0.9651,
+        "detail": 0.089,
+        "detailRaw": 0.2349,
+        "detailAdded": 0.2917,
+        "bands": 0.28
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 18,
+          "w": 399,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 25,
+          "w": 333,
+          "h": 15
+        }
+      }
+    },
+    {
+      "id": "state-02",
+      "x": 0.7718,
+      "y": 0.2661,
+      "w": 0.0605,
+      "h": 0.0333,
+      "kind": "control",
+      "score": {
+        "overall": 0.6478,
+        "structure": 0.7109,
+        "color": 0.8558,
+        "colorIntersection": 0.7595,
+        "paletteMatch": 0.9076,
+        "detail": 0.1422,
+        "detailRaw": 0.2151,
+        "detailAdded": 0.1458,
+        "bands": 0
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 16,
+          "w": 80,
+          "h": 26
+        },
+        "build": {
+          "x": 2,
+          "y": 24,
+          "w": 73,
+          "h": 24
+        }
+      }
+    },
+    {
+      "id": "hours-02",
+      "x": 0.8796,
+      "y": 0.2056,
+      "w": 0.0567,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.6409,
+        "structure": 0.7295,
+        "color": 0.9444,
+        "colorIntersection": 0.9231,
+        "paletteMatch": 0.9559,
+        "detail": 0,
+        "detailRaw": 0.0522,
+        "detailAdded": 0.1146,
+        "bands": 0.4
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 16,
+          "w": 72,
+          "h": 14
+        },
+        "build": {
+          "x": 7,
+          "y": 28,
+          "w": 39,
+          "h": 13
+        }
+      }
+    },
+    {
+      "id": "week-03",
+      "x": 0.0567,
+      "y": 0.381,
+      "w": 0.14,
+      "h": 0.0181,
+      "kind": "text",
+      "score": {
+        "overall": 0.5651,
+        "structure": 0.5984,
+        "color": 0.903,
+        "colorIntersection": 0.8056,
+        "paletteMatch": 0.9554,
+        "detail": 0.0279,
+        "detailRaw": 0.1945,
+        "detailAdded": 0.3333,
+        "bands": 0.36
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 5,
+          "y": 23,
+          "w": 208,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 13,
+          "w": 222,
+          "h": 35
+        }
+      }
+    },
+    {
+      "id": "outcome-03",
+      "x": 0.3209,
+      "y": 0.2722,
+      "w": 0.261,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.6475,
+        "structure": 0.7414,
+        "color": 0.9457,
+        "colorIntersection": 0.9014,
+        "paletteMatch": 0.9696,
+        "detail": 0.269,
+        "detailRaw": 0.3211,
+        "detailAdded": 0.1042,
+        "bands": 0
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 14,
+          "w": 399,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 21,
+          "w": 333,
+          "h": 15
+        }
+      }
+    },
+    {
+      "id": "state-03",
+      "x": 0.7718,
+      "y": 0.2661,
+      "w": 0.0605,
+      "h": 0.0423,
+      "kind": "control",
+      "score": {
+        "overall": 0.6484,
+        "structure": 0.7139,
+        "color": 0.855,
+        "colorIntersection": 0.7543,
+        "paletteMatch": 0.9093,
+        "detail": 0.1394,
+        "detailRaw": 0.2175,
+        "detailAdded": 0.1563,
+        "bands": 0
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 11,
+          "w": 80,
+          "h": 26
+        },
+        "build": {
+          "x": 2,
+          "y": 19,
+          "w": 73,
+          "h": 24
+        }
+      }
+    },
+    {
+      "id": "hours-03",
+      "x": 0.8796,
+      "y": 0.2056,
+      "w": 0.0567,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.6409,
+        "structure": 0.7295,
+        "color": 0.9444,
+        "colorIntersection": 0.9231,
+        "paletteMatch": 0.9559,
+        "detail": 0,
+        "detailRaw": 0.0522,
+        "detailAdded": 0.1146,
+        "bands": 0.4
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 16,
+          "w": 72,
+          "h": 14
+        },
+        "build": {
+          "x": 7,
+          "y": 28,
+          "w": 39,
+          "h": 13
+        }
+      }
+    },
+    {
+      "id": "deliverables-heading",
+      "x": 0.0567,
+      "y": 0.379,
+      "w": 0.14,
+      "h": 0.0212,
+      "kind": "text",
+      "score": {
+        "overall": 0.6123,
+        "structure": 0.6616,
+        "color": 0.9107,
+        "colorIntersection": 0.8555,
+        "paletteMatch": 0.9404,
+        "detail": 0.0736,
+        "detailRaw": 0.2402,
+        "detailAdded": 0.3333,
+        "bands": 0.4286
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 5,
+          "y": 24,
+          "w": 208,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 14,
+          "w": 222,
+          "h": 34
+        }
+      }
+    },
+    {
+      "id": "task-1",
+      "x": 0.0265,
+      "y": 0.373,
+      "w": 0.2686,
+      "h": 0.0665,
+      "kind": "control",
+      "score": {
+        "overall": 0.6291,
+        "structure": 0.6475,
+        "color": 0.9373,
+        "colorIntersection": 0.9084,
+        "paletteMatch": 0.9528,
+        "detail": 0.0487,
+        "detailRaw": 0.1946,
+        "detailAdded": 0.2917,
+        "bands": 0.2071
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 7,
+          "y": 11,
+          "w": 411,
+          "h": 48
+        },
+        "build": {
+          "x": 4,
+          "y": 4,
+          "w": 387,
+          "h": 55
+        }
+      }
+    },
+    {
+      "id": "task-2",
+      "x": 0.0265,
+      "y": 0.5393,
+      "w": 0.2736,
+      "h": 0.0605,
+      "kind": "control",
+      "score": {
+        "overall": 0.6803,
+        "structure": 0.7482,
+        "color": 0.9608,
+        "colorIntersection": 0.9438,
+        "paletteMatch": 0.97,
+        "detail": 0.0364,
+        "detailRaw": 0.1823,
+        "detailAdded": 0.2917,
+        "bands": 0.2167
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 7,
+          "y": 8,
+          "w": 425,
+          "h": 48
+        },
+        "build": {
+          "x": 4,
+          "y": 0,
+          "w": 390,
+          "h": 56
+        }
+      }
+    },
+    {
+      "id": "task-3",
+      "x": 0.0265,
+      "y": 0.5363,
+      "w": 0.2736,
+      "h": 0.0665,
+      "kind": "control",
+      "score": {
+        "overall": 0.6684,
+        "structure": 0.7222,
+        "color": 0.957,
+        "colorIntersection": 0.9277,
+        "paletteMatch": 0.9727,
+        "detail": 0.0426,
+        "detailRaw": 0.1832,
+        "detailAdded": 0.2813,
+        "bands": 0.2
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 7,
+          "y": 11,
+          "w": 425,
+          "h": 48
+        },
+        "build": {
+          "x": 4,
+          "y": 2,
+          "w": 390,
+          "h": 57
+        }
+      }
+    },
+    {
+      "id": "proof-heading",
+      "x": 0.338,
+      "y": 0.3367,
+      "w": 0.0832,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.6983,
+        "structure": 0.7228,
+        "color": 0.9338,
+        "colorIntersection": 0.8876,
+        "paletteMatch": 0.9587,
+        "detail": 0.2704,
+        "detailRaw": 0.3329,
+        "detailAdded": 0.125,
+        "bands": 0.6286
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 6,
+          "y": 17,
+          "w": 118,
+          "h": 11
+        },
+        "build": {
+          "x": 35,
+          "y": 22,
+          "w": 97,
+          "h": 9
+        }
+      }
+    },
+    {
+      "id": "proof-field",
+      "x": 0.3449,
+      "y": 0.3931,
+      "w": 0.2554,
+      "h": 0.1038,
+      "kind": "control",
+      "score": {
+        "overall": 0.4506,
+        "structure": 0.3087,
+        "color": 0.8121,
+        "colorIntersection": 0.6448,
+        "paletteMatch": 0.9021,
+        "detail": 0.1375,
+        "detailRaw": 0.1427,
+        "detailAdded": 0.0104,
+        "bands": 0.4923
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 11,
+          "y": 5,
+          "w": 394,
+          "h": 90
+        },
+        "build": {
+          "x": 41,
+          "y": 4,
+          "w": 364,
+          "h": 34
+        }
+      }
+    },
+    {
+      "id": "proof-help",
+      "x": 0.338,
+      "y": 0.6119,
+      "w": 0.2005,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.6573,
+        "structure": 0.8482,
+        "color": 0.9329,
+        "colorIntersection": 0.9264,
+        "paletteMatch": 0.9364,
+        "detail": 0,
+        "detailRaw": 0.0446,
+        "detailAdded": 0.2188,
+        "bands": 0
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 5,
+          "y": 17,
+          "w": 306,
+          "h": 14
+        },
+        "build": {
+          "x": 35,
+          "y": 8,
+          "w": 266,
+          "h": 10
+        }
+      }
+    },
+    {
+      "id": "hours-heading",
+      "x": 0.6797,
+      "y": 0.3367,
+      "w": 0.0757,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.7496,
+        "structure": 0.7589,
+        "color": 0.9341,
+        "colorIntersection": 0.8944,
+        "paletteMatch": 0.9555,
+        "detail": 0.4041,
+        "detailRaw": 0.4562,
+        "detailAdded": 0.1042,
+        "bands": 0.76
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 6,
+          "y": 17,
+          "w": 108,
+          "h": 11
+        },
+        "build": {
+          "x": 15,
+          "y": 22,
+          "w": 94,
+          "h": 9
+        }
+      }
+    },
+    {
+      "id": "hours-target",
+      "x": 0.6797,
+      "y": 0.3851,
+      "w": 0.1816,
+      "h": 0.0786,
+      "kind": "text",
+      "score": {
+        "overall": 0.6836,
+        "structure": 0.6608,
+        "color": 0.8494,
+        "colorIntersection": 0.7447,
+        "paletteMatch": 0.9057,
+        "detail": 0.3612,
+        "detailRaw": 0.3716,
+        "detailAdded": 0.0208,
+        "bands": 0.8667
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 6,
+          "y": 5,
+          "w": 274,
+          "h": 63
+        },
+        "build": {
+          "x": 14,
+          "y": 2,
+          "w": 184,
+          "h": 63
+        }
+      }
+    },
+    {
+      "id": "hours-progress",
+      "x": 0.6797,
+      "y": 0.4002,
+      "w": 0.1816,
+      "h": 0.0605,
+      "kind": "control",
+      "score": {
+        "overall": 0.5979,
+        "structure": 0.6672,
+        "color": 0.7995,
+        "colorIntersection": 0.6803,
+        "paletteMatch": 0.8637,
+        "detail": 0.0889,
+        "detailRaw": 0.2243,
+        "detailAdded": 0.2708,
+        "bands": 0.72
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 6,
+          "y": 0,
+          "w": 274,
+          "h": 53
+        },
+        "build": {
+          "x": 14,
+          "y": 0,
+          "w": 184,
+          "h": 50
+        }
+      }
+    },
+    {
+      "id": "notes-heading",
+      "x": 0.6873,
+      "y": 0.5302,
+      "w": 0.2131,
+      "h": 0.0696,
+      "kind": "text",
+      "score": {
+        "overall": 0.4675,
+        "structure": 0.5185,
+        "color": 0.8329,
+        "colorIntersection": 0.6663,
+        "paletteMatch": 0.9226,
+        "detail": 0,
+        "detailRaw": 0.0124,
+        "detailAdded": 0.1458,
+        "bands": 0
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 11,
+          "w": 328,
+          "h": 58
+        },
+        "build": {
+          "x": 17,
+          "y": 0,
+          "w": 321,
+          "h": 10
+        }
+      }
+    },
+    {
+      "id": "notes-field",
+      "x": 0.6873,
+      "y": 0.5302,
+      "w": 0.2686,
+      "h": 0.0786,
+      "kind": "control",
+      "score": {
+        "overall": 0.5862,
+        "structure": 0.6426,
+        "color": 0.8486,
+        "colorIntersection": 0.6944,
+        "paletteMatch": 0.9317,
+        "detail": 0,
+        "detailRaw": 0.0206,
+        "detailAdded": 0.1563,
+        "bands": 0
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 11,
+          "w": 409,
+          "h": 61
+        },
+        "build": {
+          "x": 17,
+          "y": 0,
+          "w": 406,
+          "h": 78
+        }
+      }
+    },
+    {
+      "id": "week-04",
+      "x": 0.0757,
+      "y": 0.748,
+      "w": 0.0908,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.7465,
+        "structure": 0.6814,
+        "color": 0.9088,
+        "colorIntersection": 0.86,
+        "paletteMatch": 0.9351,
+        "detail": 0.5575,
+        "detailRaw": 0.5731,
+        "detailAdded": 0.0313,
+        "bands": 0.95
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 16,
+          "w": 125,
+          "h": 21
+        },
+        "build": {
+          "x": 4,
+          "y": 19,
+          "w": 103,
+          "h": 17
+        }
+      }
+    },
+    {
+      "id": "outcome-04",
+      "x": 0.3209,
+      "y": 0.6996,
+      "w": 0.2232,
+      "h": 0.0242,
+      "kind": "text",
+      "score": {
+        "overall": 0.801,
+        "structure": 0.8221,
+        "color": 0.9318,
+        "colorIntersection": 0.9021,
+        "paletteMatch": 0.9478,
+        "detail": 0.4803,
+        "detailRaw": 0.4959,
+        "detailAdded": 0.0313,
+        "bands": 0.85
+      },
+      "verdict": "match",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 10,
+          "w": 338,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 11,
+          "w": 301,
+          "h": 12
+        }
+      }
+    },
+    {
+      "id": "state-04",
+      "x": 0.7718,
+      "y": 0.7419,
+      "w": 0.0605,
+      "h": 0.0423,
+      "kind": "control",
+      "score": {
+        "overall": 0.6991,
+        "structure": 0.74,
+        "color": 0.9365,
+        "colorIntersection": 0.9219,
+        "paletteMatch": 0.9444,
+        "detail": 0.1917,
+        "detailRaw": 0.2438,
+        "detailAdded": 0.1042,
+        "bands": 0.4
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 14,
+          "w": 80,
+          "h": 25
+        },
+        "build": {
+          "x": 2,
+          "y": 18,
+          "w": 73,
+          "h": 24
+        }
+      }
+    },
+    {
+      "id": "hours-04",
+      "x": 0.8796,
+      "y": 0.754,
+      "w": 0.053,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.7291,
+        "structure": 0.7904,
+        "color": 0.9472,
+        "colorIntersection": 0.9425,
+        "paletteMatch": 0.9498,
+        "detail": 0.1808,
+        "detailRaw": 0.2068,
+        "detailAdded": 0.0521,
+        "bands": 0.7
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 15,
+          "w": 63,
+          "h": 14
+        },
+        "build": {
+          "x": 0,
+          "y": 18,
+          "w": 38,
+          "h": 12
+        }
+      }
+    },
+    {
+      "id": "week-05",
+      "x": 0.0757,
+      "y": 0.748,
+      "w": 0.0908,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.7465,
+        "structure": 0.6814,
+        "color": 0.9088,
+        "colorIntersection": 0.86,
+        "paletteMatch": 0.9351,
+        "detail": 0.5575,
+        "detailRaw": 0.5731,
+        "detailAdded": 0.0313,
+        "bands": 0.95
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 16,
+          "w": 125,
+          "h": 21
+        },
+        "build": {
+          "x": 4,
+          "y": 19,
+          "w": 103,
+          "h": 17
+        }
+      }
+    },
+    {
+      "id": "outcome-05",
+      "x": 0.3209,
+      "y": 0.6996,
+      "w": 0.2232,
+      "h": 0.0242,
+      "kind": "text",
+      "score": {
+        "overall": 0.801,
+        "structure": 0.8221,
+        "color": 0.9318,
+        "colorIntersection": 0.9021,
+        "paletteMatch": 0.9478,
+        "detail": 0.4803,
+        "detailRaw": 0.4959,
+        "detailAdded": 0.0313,
+        "bands": 0.85
+      },
+      "verdict": "match",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 10,
+          "w": 338,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 11,
+          "w": 301,
+          "h": 12
+        }
+      }
+    },
+    {
+      "id": "state-05",
+      "x": 0.7718,
+      "y": 0.8085,
+      "w": 0.0605,
+      "h": 0.0423,
+      "kind": "control",
+      "score": {
+        "overall": 0.6878,
+        "structure": 0.7371,
+        "color": 0.9348,
+        "colorIntersection": 0.9201,
+        "paletteMatch": 0.9427,
+        "detail": 0.1446,
+        "detailRaw": 0.2175,
+        "detailAdded": 0.1458,
+        "bands": 1
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 10,
+          "w": 80,
+          "h": 25
+        },
+        "build": {
+          "x": 2,
+          "y": 15,
+          "w": 73,
+          "h": 23
+        }
+      }
+    },
+    {
+      "id": "hours-05",
+      "x": 0.8796,
+      "y": 0.754,
+      "w": 0.053,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.7291,
+        "structure": 0.7904,
+        "color": 0.9472,
+        "colorIntersection": 0.9425,
+        "paletteMatch": 0.9498,
+        "detail": 0.1808,
+        "detailRaw": 0.2068,
+        "detailAdded": 0.0521,
+        "bands": 0.7
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 15,
+          "w": 63,
+          "h": 14
+        },
+        "build": {
+          "x": 0,
+          "y": 18,
+          "w": 38,
+          "h": 12
+        }
+      }
+    },
+    {
+      "id": "week-06",
+      "x": 0.0757,
+      "y": 0.8125,
+      "w": 0.0757,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.7371,
+        "structure": 0.7266,
+        "color": 0.9068,
+        "colorIntersection": 0.8597,
+        "paletteMatch": 0.9322,
+        "detail": 0.447,
+        "detailRaw": 0.4626,
+        "detailAdded": 0.0313,
+        "bands": 0.8
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 17,
+          "w": 103,
+          "h": 16
+        },
+        "build": {
+          "x": 5,
+          "y": 22,
+          "w": 86,
+          "h": 13
+        }
+      }
+    },
+    {
+      "id": "outcome-06",
+      "x": 0.3209,
+      "y": 0.879,
+      "w": 0.2005,
+      "h": 0.0212,
+      "kind": "text",
+      "score": {
+        "overall": 0.701,
+        "structure": 0.743,
+        "color": 0.9284,
+        "colorIntersection": 0.8829,
+        "paletteMatch": 0.9529,
+        "detail": 0.4804,
+        "detailRaw": 0.5273,
+        "detailAdded": 0.0938,
+        "bands": 0.2533
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 20,
+          "w": 302,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 24,
+          "w": 270,
+          "h": 15
+        }
+      }
+    },
+    {
+      "id": "state-06",
+      "x": 0.7718,
+      "y": 0.8065,
+      "w": 0.0605,
+      "h": 0.0423,
+      "kind": "control",
+      "score": {
+        "overall": 0.6877,
+        "structure": 0.7314,
+        "color": 0.9439,
+        "colorIntersection": 0.9201,
+        "paletteMatch": 0.9567,
+        "detail": 0.1409,
+        "detailRaw": 0.2086,
+        "detailAdded": 0.1354,
+        "bands": 1
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 12,
+          "w": 80,
+          "h": 25
+        },
+        "build": {
+          "x": 2,
+          "y": 17,
+          "w": 73,
+          "h": 23
+        }
+      }
+    },
+    {
+      "id": "hours-06",
+      "x": 0.8796,
+      "y": 0.8125,
+      "w": 0.053,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.695,
+        "structure": 0.7923,
+        "color": 0.9538,
+        "colorIntersection": 0.9405,
+        "paletteMatch": 0.9609,
+        "detail": 0.1362,
+        "detailRaw": 0.1675,
+        "detailAdded": 0.0625,
+        "bands": 0.4
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 18,
+          "w": 64,
+          "h": 15
+        },
+        "build": {
+          "x": 0,
+          "y": 22,
+          "w": 38,
+          "h": 13
+        }
+      }
+    },
+    {
+      "id": "week-07",
+      "x": 0.0757,
+      "y": 0.9425,
+      "w": 0.0643,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.7305,
+        "structure": 0.7139,
+        "color": 0.9226,
+        "colorIntersection": 0.875,
+        "paletteMatch": 0.9482,
+        "detail": 0.4863,
+        "detailRaw": 0.5071,
+        "detailAdded": 0.0417,
+        "bands": 0.7
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 12,
+          "w": 84,
+          "h": 20
+        },
+        "build": {
+          "x": 4,
+          "y": 16,
+          "w": 71,
+          "h": 15
+        }
+      }
+    },
+    {
+      "id": "outcome-07",
+      "x": 0.3209,
+      "y": 0.9425,
+      "w": 0.1778,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.7477,
+        "structure": 0.7521,
+        "color": 0.9144,
+        "colorIntersection": 0.8759,
+        "paletteMatch": 0.9351,
+        "detail": 0.5274,
+        "detailRaw": 0.5795,
+        "detailAdded": 0.1042,
+        "bands": 0.64
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 15,
+          "w": 267,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 18,
+          "w": 282,
+          "h": 16
+        }
+      }
+    },
+    {
+      "id": "state-07",
+      "x": 0.7718,
+      "y": 0.9365,
+      "w": 0.0605,
+      "h": 0.0423,
+      "kind": "control",
+      "score": {
+        "overall": 0.6911,
+        "structure": 0.735,
+        "color": 0.9393,
+        "colorIntersection": 0.9219,
+        "paletteMatch": 0.9487,
+        "detail": 0.1579,
+        "detailRaw": 0.2204,
+        "detailAdded": 0.125,
+        "bands": 1
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 9,
+          "w": 80,
+          "h": 25
+        },
+        "build": {
+          "x": 2,
+          "y": 13,
+          "w": 73,
+          "h": 24
+        }
+      }
+    },
+    {
+      "id": "hours-07",
+      "x": 0.8796,
+      "y": 0.9425,
+      "w": 0.053,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.6911,
+        "structure": 0.7881,
+        "color": 0.9401,
+        "colorIntersection": 0.9345,
+        "paletteMatch": 0.943,
+        "detail": 0.1473,
+        "detailRaw": 0.1681,
+        "detailAdded": 0.0417,
+        "bands": 0.4
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 15,
+          "w": 64,
+          "h": 15
+        },
+        "build": {
+          "x": 0,
+          "y": 19,
+          "w": 38,
+          "h": 12
+        }
+      }
+    },
+    {
+      "id": "week-08",
+      "x": 0.0757,
+      "y": 0.9425,
+      "w": 0.0643,
+      "h": 0.0363,
+      "kind": "text",
+      "score": {
+        "overall": 0.7305,
+        "structure": 0.7139,
+        "color": 0.9226,
+        "colorIntersection": 0.875,
+        "paletteMatch": 0.9482,
+        "detail": 0.4863,
+        "detailRaw": 0.5071,
+        "detailAdded": 0.0417,
+        "bands": 0.7
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 12,
+          "w": 84,
+          "h": 20
+        },
+        "build": {
+          "x": 4,
+          "y": 16,
+          "w": 71,
+          "h": 15
+        }
+      }
+    },
+    {
+      "id": "outcome-08",
+      "x": 0.3209,
+      "y": 0.9425,
+      "w": 0.1778,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.7477,
+        "structure": 0.7521,
+        "color": 0.9144,
+        "colorIntersection": 0.8759,
+        "paletteMatch": 0.9351,
+        "detail": 0.5274,
+        "detailRaw": 0.5795,
+        "detailAdded": 0.1042,
+        "bands": 0.64
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 15,
+          "w": 267,
+          "h": 18
+        },
+        "build": {
+          "x": 0,
+          "y": 18,
+          "w": 282,
+          "h": 16
+        }
+      }
+    },
+    {
+      "id": "state-08",
+      "x": 0.7718,
+      "y": 0.9365,
+      "w": 0.0605,
+      "h": 0.0423,
+      "kind": "control",
+      "score": {
+        "overall": 0.6911,
+        "structure": 0.735,
+        "color": 0.9393,
+        "colorIntersection": 0.9219,
+        "paletteMatch": 0.9487,
+        "detail": 0.1579,
+        "detailRaw": 0.2204,
+        "detailAdded": 0.125,
+        "bands": 1
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 9,
+          "w": 80,
+          "h": 25
+        },
+        "build": {
+          "x": 2,
+          "y": 13,
+          "w": 73,
+          "h": 24
+        }
+      }
+    },
+    {
+      "id": "hours-08",
+      "x": 0.8796,
+      "y": 0.9425,
+      "w": 0.053,
+      "h": 0.0302,
+      "kind": "text",
+      "score": {
+        "overall": 0.6911,
+        "structure": 0.7881,
+        "color": 0.9401,
+        "colorIntersection": 0.9345,
+        "paletteMatch": 0.943,
+        "detail": 0.1473,
+        "detailRaw": 0.1681,
+        "detailAdded": 0.0417,
+        "bands": 0.4
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 15,
+          "w": 64,
+          "h": 15
+        },
+        "build": {
+          "x": 0,
+          "y": 19,
+          "w": 38,
+          "h": 12
+        }
+      }
+    }
+  ],
+  "files": {
+    "sideBySide": "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/side-by-side.png",
+    "heatmap": "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/heatmap.png",
+    "regionFiles": [
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/app-title.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/overall-label.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/overall-progress.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/current-week.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/header-week.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/header-focus.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/header-outcome.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/header-status.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/header-hours.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/week-01.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/outcome-01.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/state-01.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-01.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/week-02.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/outcome-02.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/state-02.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-02.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/week-03.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/outcome-03.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/state-03.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-03.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/deliverables-heading.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/task-1.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/task-2.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/task-3.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/proof-heading.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/proof-field.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/proof-help.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-heading.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-target.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-progress.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/notes-heading.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/notes-field.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/week-04.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/outcome-04.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/state-04.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-04.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/week-05.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/outcome-05.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/state-05.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-05.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/week-06.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/outcome-06.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/state-06.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-06.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/week-07.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/outcome-07.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/state-07.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-07.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/week-08.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/outcome-08.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/state-08.png",
+      "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/manual-second/regions/hours-08.png"
+    ]
+  }
+}

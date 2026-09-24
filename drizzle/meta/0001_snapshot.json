@@ -1,0 +1,58 @@
+{
+  "id": "619bd6af-69e1-49bf-aff1-696474132a86",
+  "prevId": "88bcf6bc-929f-4194-bd48-cacc485ec521",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.tracker_states": {
+      "name": "tracker_states",
+      "schema": "",
+      "columns": {
+        "tracker_id": {
+          "name": "tracker_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "state": {
+          "name": "state",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "active_stage": {
+          "name": "active_stage",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

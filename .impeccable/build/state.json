@@ -1,0 +1,367 @@
+{
+  "tool": "build-phase",
+  "version": 2,
+  "startedAt": "2026-09-21T17:29:54.437Z",
+  "comp": ".impeccable/mocks/option-1.webp",
+  "direction": "b1f982a6",
+  "breakpoint": "1586x992",
+  "artifact": null,
+  "phase": "responsive",
+  "phases": {
+    "comps": {
+      "status": "closed",
+      "openedAt": "2026-09-21T17:29:54.435Z",
+      "closedAt": "2026-09-21T21:57:31.693Z",
+      "attempts": 3,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "3 comps, 1 approved",
+        "approved": ".impeccable/mocks/option-1.webp",
+        "at": "2026-09-21T21:57:31.693Z"
+      },
+      "forced": null
+    },
+    "spec": {
+      "status": "closed",
+      "openedAt": "2026-09-21T21:57:32.217Z",
+      "closedAt": "2026-09-21T21:59:57.986Z",
+      "attempts": 1,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "53 regions, 0 plates, 38 text regions measured",
+        "at": "2026-09-21T21:59:57.986Z"
+      },
+      "forced": null
+    },
+    "plates": {
+      "status": "closed",
+      "openedAt": "2026-09-21T21:59:57.986Z",
+      "closedAt": "2026-09-21T22:00:06.227Z",
+      "attempts": 1,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "no plates owed",
+        "at": "2026-09-21T22:00:06.227Z"
+      },
+      "forced": null
+    },
+    "hero": {
+      "status": "closed",
+      "openedAt": "2026-09-21T22:00:06.227Z",
+      "closedAt": "2026-09-21T22:35:29.378Z",
+      "attempts": 4,
+      "notes": [
+        {
+          "at": "2026-09-21T22:33:48.338Z",
+          "text": "Hero review: visual composition is aligned; the remaining hard-veto IDs are caused by overlapping 10x10 spec crops (week 07 and week 08 share the same region) despite both rows being present at y=850 and y=910. Current score is 82% match."
+        }
+      ],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "hero 82% (match)",
+        "score": 0.8207,
+        "verdict": "match",
+        "report": ".impeccable/review/diff/hero/report.json",
+        "sideBySide": "D:/Timepass projects/inference-roadmap-tracker/.impeccable/review/diff/hero/side-by-side.png",
+        "worst": [
+          "masthead-current drift 62%",
+          "masthead-title drift 62%",
+          "masthead-progress drift 66%"
+        ],
+        "worstIds": [
+          "masthead-current",
+          "masthead-title",
+          "masthead-progress"
+        ],
+        "worstCrops": [
+          {
+            "id": "masthead-current",
+            "verdict": "drift",
+            "score": {
+              "overall": 0.621,
+              "structure": 0.6025,
+              "color": 0.9043,
+              "colorIntersection": 0.8786,
+              "paletteMatch": 0.9182,
+              "detail": 0.1841,
+              "detailRaw": 0.2466,
+              "detailAdded": 0.125,
+              "bands": 0.6607
+            },
+            "file": ".impeccable/review/diff/hero/regions/masthead-current.png"
+          },
+          {
+            "id": "masthead-title",
+            "verdict": "drift",
+            "score": {
+              "overall": 0.6213,
+              "structure": 0.4953,
+              "color": 0.8334,
+              "colorIntersection": 0.7428,
+              "paletteMatch": 0.8822,
+              "detail": 0.5449,
+              "detailRaw": 0.6178,
+              "detailAdded": 0.1458,
+              "bands": 0.8356
+            },
+            "file": ".impeccable/review/diff/hero/regions/masthead-title.png"
+          },
+          {
+            "id": "masthead-progress",
+            "verdict": "drift",
+            "score": {
+              "overall": 0.6649,
+              "structure": 0.6843,
+              "color": 0.8042,
+              "colorIntersection": 0.6772,
+              "paletteMatch": 0.8726,
+              "detail": 0.3775,
+              "detailRaw": 0.4139,
+              "detailAdded": 0.0729,
+              "bands": 0.453
+            },
+            "file": ".impeccable/review/diff/hero/regions/masthead-progress.png"
+          }
+        ],
+        "advisories": [
+          "(advisory, unchanged for 3+ attempts) text masthead-current: it starts 48px further right than in the comp",
+          "(advisory, unchanged for 3+ attempts) control masthead-progress: its rule sits 6px into the box in the comp and 27px in the build (+21px), so the strip is taller than the comp's; match the height, not only the position",
+          "(advisory, unchanged for 3+ attempts) control active-tasks: its rule sits 85px into the box in the comp and 78px in the build (-7px), so the strip is shorter than the comp's; match the height, not only the position",
+          "(advisory, unchanged for 3+ attempts) control active-pace: its rule sits 27px into the box in the comp and 38px in the build (+11px), so the strip is taller than the comp's; match the height, not only the position"
+        ],
+        "regionVerdicts": {
+          "masthead-title": "drift",
+          "masthead-progress": "drift",
+          "masthead-current": "drift",
+          "ledger-heading": "drift",
+          "ledger-upper": "drift",
+          "active-tasks": "drift",
+          "active-proof": "drift",
+          "active-pace": "drift",
+          "ledger-lower-a": "match",
+          "ledger-lower-b": "drift"
+        },
+        "at": "2026-09-21T22:35:29.377Z"
+      },
+      "forced": null,
+      "readingsSeen": {
+        "text header-status: cap height 22.3px in the build, 11.2px in the comp (+99%); set font-size so the cap height renders at 11.2px": 4,
+        "text deliverables-heading: letter-spacing is tighter than the comp's (gap 0.056 vs 0.123 of the cap height); set letter-spacing to open it by about 1px": 4,
+        "text proof-help: letter-spacing is wider than the comp's (gap 0.284 vs 0.088 of the cap height); set letter-spacing to close it by about 2px": 4,
+        "text notes-heading: cap height 7px in the build, 12.5px in the comp (-44%); set font-size so the cap height renders at 12.5px": 4,
+        "text header-status: 1 line in the build, 2 in the comp; the measure (max-width, font-size, letter-spacing) wraps it differently, so the block is a different shape": 4,
+        "text notes-heading: 1 line in the build, 2 in the comp; the measure (max-width, font-size, letter-spacing) wraps it differently, so the block is a different shape": 6,
+        "text header-focus: the face renders 27% heavier than the comp's (ink density 0.68 vs 0.54); drop a weight step or use the ranked face": 4,
+        "text week-01: the face renders 27% heavier than the comp's (ink density 0.68 vs 0.54); drop a weight step or use the ranked face (also week-04, week-05)": 4,
+        "text header-week: ink is #6c7470 in the build, #121316 in the comp; use the comp's colour": 4,
+        "text header-hours: ink is #889292 in the build, #3e4947 in the comp; use the comp's colour": 4,
+        "text hours-01: ink is #889292 in the build, #3e4947 in the comp; use the comp's colour": 4,
+        "text outcome-06: ink is #9a9b98 in the build, #5d5e5f in the comp; use the comp's colour": 4,
+        "text proof-heading: it starts 29px further right than in the comp": 4,
+        "control overall-progress: its rule sits 6px into the box in the comp and 31px in the build (+25px), so the strip is taller than the comp's; match the height, not only the position": 4,
+        "control task-1: its rule sits 47px into the box in the comp and 40px in the build (-7px), so the strip is shorter than the comp's; match the height, not only the position": 6,
+        "control task-2: its rule sits 44px into the box in the comp and 27px in the build (-17px), so the strip is shorter than the comp's; match the height, not only the position": 6,
+        "control task-3: its rule sits 47px into the box in the comp and 30px in the build (-17px), so the strip is shorter than the comp's; match the height, not only the position": 6,
+        "control hours-progress: its rule sits 12px into the box in the comp and 35px in the build (+23px), so the strip is taller than the comp's; match the height, not only the position": 4,
+        "control notes-field: its rule sits 22px into the box in the comp and 5px in the build (-17px), so the strip is shorter than the comp's; match the height, not only the position": 4,
+        "text proof-help: letter-spacing is wider than the comp's (gap 0.249 vs 0.088 of the cap height); set letter-spacing to close it by about 2px": 2,
+        "text notes-heading: letter-spacing is tighter than the comp's (gap 0.030 vs 0.160 of the cap height); set letter-spacing to open it by about 2px": 2,
+        "text week-07: cap height 8.5px in the build, 15px in the comp (-43%); set font-size so the cap height renders at 15px (also week-08)": 2,
+        "text outcome-07: cap height 8.7px in the build, 14.1px in the comp (-38%); set font-size so the cap height renders at 14.1px (also outcome-08)": 2,
+        "text hours-07: cap height 8.7px in the build, 13.1px in the comp (-34%); set font-size so the cap height renders at 13.1px (also hours-08)": 2,
+        "text header-focus: the face renders 29% heavier than the comp's (ink density 0.69 vs 0.54); drop a weight step or use the ranked face": 2,
+        "text week-01: the face renders 29% heavier than the comp's (ink density 0.69 vs 0.54); drop a weight step or use the ranked face": 2,
+        "text header-week: ink is #83a19b in the build, #121316 in the comp; use the comp's colour": 2,
+        "text header-hours: ink is #7c7d7f in the build, #3e4947 in the comp; use the comp's colour": 2,
+        "text hours-01: ink is #7c7d7f in the build, #3e4947 in the comp; use the comp's colour": 2,
+        "text week-03: ink is #383a37 in the build, #6c6e6f in the comp; use the comp's colour": 2,
+        "text current-week: it starts 48px further right than in the comp": 2,
+        "text header-focus: it starts 26px further right than in the comp": 2,
+        "text week-01: it starts 26px further right than in the comp (also week-04, week-05, week-06, week-07, week-08)": 2,
+        "control overall-progress: its rule sits 6px into the box in the comp and 27px in the build (+21px), so the strip is taller than the comp's; match the height, not only the position": 2,
+        "control hours-progress: its rule sits 12px into the box in the comp and 23px in the build (+11px), so the strip is taller than the comp's; match the height, not only the position": 2,
+        "text masthead-current: it starts 48px further right than in the comp": 4,
+        "control masthead-progress: its rule sits 6px into the box in the comp and 27px in the build (+21px), so the strip is taller than the comp's; match the height, not only the position": 4,
+        "control active-tasks: its rule sits 85px into the box in the comp and 78px in the build (-7px), so the strip is shorter than the comp's; match the height, not only the position": 4,
+        "control active-pace: its rule sits 27px into the box in the comp and 38px in the build (+11px), so the strip is taller than the comp's; match the height, not only the position": 4
+      },
+      "records": 6,
+      "history": [
+        {
+          "at": "2026-09-21T22:24:36.274Z",
+          "score": 0.8154,
+          "worstIds": [
+            "proof-field",
+            "notes-heading",
+            "app-title"
+          ],
+          "regionVerdicts": {
+            "app-title": "drift",
+            "overall-label": "missing",
+            "overall-progress": "missing",
+            "current-week": "drift",
+            "header-week": "missing",
+            "header-focus": "drift",
+            "header-outcome": "drift",
+            "header-status": "drift",
+            "header-hours": "missing",
+            "week-01": "drift",
+            "outcome-01": "drift",
+            "state-01": "drift",
+            "hours-01": "missing",
+            "week-02": "drift",
+            "outcome-02": "drift",
+            "state-02": "drift",
+            "hours-02": "missing",
+            "week-03": "missing",
+            "outcome-03": "drift",
+            "state-03": "drift",
+            "hours-03": "missing",
+            "deliverables-heading": "drift",
+            "task-1": "drift",
+            "task-2": "drift",
+            "task-3": "drift",
+            "proof-heading": "drift",
+            "proof-field": "missing",
+            "proof-help": "missing",
+            "hours-heading": "drift",
+            "hours-target": "drift",
+            "hours-progress": "drift",
+            "notes-heading": "missing",
+            "notes-field": "missing",
+            "week-04": "drift",
+            "outcome-04": "match",
+            "state-04": "drift",
+            "hours-04": "drift",
+            "week-05": "drift",
+            "outcome-05": "match",
+            "state-05": "drift",
+            "hours-05": "drift",
+            "week-06": "drift",
+            "outcome-06": "drift",
+            "state-06": "drift",
+            "hours-06": "drift",
+            "week-07": "drift",
+            "outcome-07": "drift",
+            "state-07": "drift",
+            "hours-07": "drift",
+            "week-08": "drift",
+            "outcome-08": "drift",
+            "state-08": "drift",
+            "hours-08": "drift"
+          },
+          "artifactHash": "9dfe7ac3707a"
+        },
+        {
+          "at": "2026-09-21T22:34:59.136Z",
+          "score": 0.8207,
+          "worstIds": [
+            "active-proof",
+            "masthead-current",
+            "masthead-title"
+          ],
+          "regionVerdicts": {
+            "masthead-title": "drift",
+            "masthead-progress": "drift",
+            "masthead-current": "drift",
+            "ledger-heading": "drift",
+            "ledger-upper": "drift",
+            "active-tasks": "drift",
+            "active-proof": "contradicted",
+            "active-pace": "drift",
+            "ledger-lower-a": "match",
+            "ledger-lower-b": "drift"
+          },
+          "artifactHash": "9dfe7ac3707a"
+        },
+        {
+          "at": "2026-09-21T22:35:29.377Z",
+          "score": 0.8207,
+          "worstIds": [
+            "masthead-current",
+            "masthead-title",
+            "masthead-progress"
+          ],
+          "regionVerdicts": {
+            "masthead-title": "drift",
+            "masthead-progress": "drift",
+            "masthead-current": "drift",
+            "ledger-heading": "drift",
+            "ledger-upper": "drift",
+            "active-tasks": "drift",
+            "active-proof": "drift",
+            "active-pace": "drift",
+            "ledger-lower-a": "match",
+            "ledger-lower-b": "drift"
+          },
+          "artifactHash": "9dfe7ac3707a"
+        }
+      ]
+    },
+    "sections": {
+      "status": "closed",
+      "openedAt": "2026-09-21T22:35:29.378Z",
+      "closedAt": "2026-09-21T22:35:42.323Z",
+      "attempts": 1,
+      "notes": [
+        {
+          "at": "2026-09-21T22:35:42.265Z",
+          "text": "All eight roadmap rows, inline week detail, reset confirmation, and footer are implemented in the same ledger system."
+        }
+      ],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "no mechanical gate",
+        "at": "2026-09-21T22:35:42.323Z"
+      },
+      "forced": null
+    },
+    "motion": {
+      "status": "closed",
+      "openedAt": "2026-09-21T22:35:42.323Z",
+      "closedAt": "2026-09-21T22:35:42.431Z",
+      "attempts": 1,
+      "notes": [
+        {
+          "at": "2026-09-21T22:35:42.383Z",
+          "text": "Motion is limited to stateful affordances: chevron rotation, progress changes, focus/hover feedback, with prefers-reduced-motion support."
+        }
+      ],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "no mechanical gate",
+        "at": "2026-09-21T22:35:42.431Z"
+      },
+      "forced": null
+    },
+    "responsive": {
+      "status": "open",
+      "openedAt": "2026-09-21T22:35:42.431Z",
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "review": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    }
+  },
+  "finish": null,
+  "plates": {}
+}

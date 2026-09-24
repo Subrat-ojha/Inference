@@ -1,0 +1,1 @@
+ALTER TABLE "tracker_states" ALTER COLUMN "tracker_id" SET DATA TYPE text;

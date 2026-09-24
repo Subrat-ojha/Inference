@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T00:00:00.000Z",
+  "creativeNorthStar": "The Study Ledger",
+  "themeModes": {
+    "light": {
+      "canvas": "#f7f7f4",
+      "surface": "#fbfcfa",
+      "content": "#171c1a",
+      "muted": "#626c68",
+      "rule": "#cbd5d0",
+      "state": "#226b49"
+    },
+    "dark": {
+      "canvas": "#111613",
+      "surface": "#171d1a",
+      "content": "#edf2ef",
+      "muted": "#adb9b3",
+      "rule": "#34423b",
+      "state": "#5fc28e"
+    }
+  },
+  "colorMeta": {
+    "paper": {
+      "displayName": "Paper",
+      "role": "Primary canvas",
+      "canonical": "#f7f7f4",
+      "tonalRamp": ["#ffffff", "#fbfcfa", "#f7f7f4", "#eef0eb", "#dfe3dc", "#cbd1c8", "#a7afa4", "#7d887c"]
+    },
+    "ink": {
+      "displayName": "Ink",
+      "role": "Primary content",
+      "canonical": "#171c1a",
+      "tonalRamp": ["#f4f6f5", "#dfe4e1", "#bdc6c1", "#929f99", "#68756f", "#46514c", "#2c3531", "#171c1a"]
+    },
+    "state-green": {
+      "displayName": "State Green",
+      "role": "Progress, focus, and success",
+      "canonical": "#226b49",
+      "tonalRamp": ["#eef8f2", "#d8eee1", "#b4dec5", "#86c6a2", "#59a87e", "#398961", "#226b49", "#174b35"]
+    },
+    "danger": {
+      "displayName": "Danger",
+      "role": "Destructive confirmation",
+      "canonical": "#9e3e34",
+      "tonalRamp": ["#fff2f0", "#fbded9", "#f2bbb3", "#df8d82", "#c66357", "#9e3e34", "#7c2e27", "#57201c"]
+    }
+  },
+  "typographyMeta": {
+    "display": {
+      "role": "Page title and measured headings",
+      "case": "uppercase",
+      "family": "JetBrains Mono Variable"
+    },
+    "body": {
+      "role": "Instructions and learner-authored prose",
+      "family": "Source Sans 3 Variable"
+    },
+    "label": {
+      "role": "Indices, metadata, labels, and status",
+      "case": "uppercase",
+      "family": "JetBrains Mono Variable"
+    }
+  },
+  "shadows": [],
+  "motion": {
+    "reveal-sheet": {
+      "duration": "280ms",
+      "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+    },
+    "state-change": {
+      "duration": "220ms",
+      "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+    },
+    "reducedMotion": "Remove nonessential transitions and reveal animation."
+  },
+  "breakpoints": {
+    "medium": "1050px",
+    "mobile": "700px"
+  },
+  "components": [
+    {
+      "name": "Ledger row",
+      "kind": "custom",
+      "html": "<button class=\"ds-ledger-row\"><span>01</span><strong>Python foundations</strong><span>Active</span></button>",
+      "css": ".ds-ledger-row{display:grid;grid-template-columns:3rem 1fr auto;width:100%;min-height:59px;padding:8px 16px;border:0;border-bottom:1px solid #cbd5d0;background:#f7f7f4;color:#171c1a;text-align:left}.ds-ledger-row:hover{border-bottom-color:#9fb2aa}.ds-ledger-row:focus-visible{outline:2px solid #c97a3d;outline-offset:-2px}"
+    },
+    {
+      "name": "Task checkbox",
+      "kind": "input",
+      "html": "<label class=\"ds-task\"><input type=\"checkbox\"> Run a Python script from the terminal</label>",
+      "css": ".ds-task{display:flex;gap:12px;align-items:flex-start;color:#171c1a}.ds-task input{width:18px;height:18px;margin:2px 0 0;accent-color:#226b49;border-radius:2px}.ds-task input:focus-visible{outline:2px solid #c97a3d;outline-offset:2px}"
+    },
+    {
+      "name": "Study notes",
+      "kind": "input",
+      "html": "<textarea class=\"ds-notes\" placeholder=\"Questions, commands, or observations\"></textarea>",
+      "css": ".ds-notes{box-sizing:border-box;width:100%;padding:13px 16px;border:1px solid #9fb2aa;border-radius:2px;background:#fbfcfa;color:#171c1a;font:inherit}.ds-notes::placeholder{color:#59635f}.ds-notes:focus{outline:2px solid #c97a3d;outline-offset:2px;border-color:#226b49}"
+    },
+    {
+      "name": "Progress rule",
+      "kind": "custom",
+      "html": "<div class=\"ds-progress\"><span style=\"width:25%\"></span></div>",
+      "css": ".ds-progress{height:12px;overflow:hidden;border:1px solid #9fb2aa;border-radius:2px;background:#fbfcfa}.ds-progress span{display:block;height:100%;background:#226b49;transition:width 220ms cubic-bezier(.16,1,.3,1)}"
+    },
+    {
+      "name": "Danger reset",
+      "kind": "button",
+      "html": "<button class=\"ds-reset\">Reset progress</button>",
+      "css": ".ds-reset{padding:7px 12px;border:1px solid #9e3e34;border-radius:2px;background:#9e3e34;color:#fff;font:700 .73rem/1 'JetBrains Mono Variable',monospace;text-transform:uppercase;letter-spacing:.08em}.ds-reset:hover{background:#7c2e27}.ds-reset:focus-visible{outline:2px solid #c97a3d;outline-offset:2px}"
+    },
+    {
+      "name": "Sync status",
+      "kind": "custom",
+      "html": "<output class=\"ds-sync\">Saved to Neon</output>",
+      "css": ".ds-sync{position:fixed;right:20px;bottom:20px;padding:8px 12px;border:1px solid #9fb2aa;background:#fbfcfa;color:#174b35;font:700 .7rem/1 'JetBrains Mono Variable',monospace;text-transform:uppercase;letter-spacing:.08em;pointer-events:none}"
+    }
+  ],
+  "narrative": {
+    "overview": "The interface should feel like a calm engineering record: precise, quiet, and built around visible reading and practice rather than decoration.",
+    "rules": [
+      "The Practice Before Progress Rule.",
+      "The One Green Rule.",
+      "The Measurement Voice Rule.",
+      "The One Open Sheet Rule.",
+      "The Flat Sheet Rule."
+    ],
+    "dos": [
+      "Do make the next useful action obvious.",
+      "Do make the one-hour scope and the difference between orientation and mastery explicit.",
+      "Do preserve keyboard focus, readable contrast, and reduced-motion behavior.",
+      "Do keep synchronization state visible and truthful."
+    ],
+    "donts": [
+      "Don't imply that passive reading equals engineering ability.",
+      "Don't use green as general decoration.",
+      "Don't hide multiple expanded stage sheets in the page.",
+      "Don't add shadows, glossy gradients, pills, or ornamental dashboard cards."
+    ]
+  }
+}

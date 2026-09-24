@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790051401647,
+      "tag": "0000_clear_exiles",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790188368460,
+      "tag": "0001_auth-user-ownership",
+      "breakpoints": true
+    }
+  ]
+}
