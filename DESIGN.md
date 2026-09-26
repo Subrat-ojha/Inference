@@ -98,6 +98,7 @@ The system is intentionally square and technical. Inputs, buttons, checks, and p
 - **Reading list:** Two official links per stage, each with a precise instruction describing what to read and why it matters.
 - **Study notes:** An optional full-width text area for questions, commands, and observations from the sprint.
 - **Progress rule:** A thin deterministic bar showing completed tasks across all stages, accompanied by an exact numeric label.
+- **Inference signal header:** A faint stepped trace sits behind the tracker header, with one moving green packet and one pulsing current node. It must remain subordinate to the account, stage, and progress content, adapt to both themes, and respect reduced-motion preferences.
 - **Sync status:** A persistent, non-interactive status notice for loading, saving, saved, offline queueing, or local fallback.
 - **Theme toggle:** A compact square switch in the status block. It follows the device on first visit, then remembers the learner's explicit choice.
 - **Reset confirmation:** A destructive action that expands beside its trigger and always offers an immediate safe exit.

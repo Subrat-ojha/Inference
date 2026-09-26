@@ -835,6 +835,30 @@ type TrackerAppProps = {
   onSignOut: () => Promise<void>
 }
 
+function HeaderSignalTrace() {
+  return (
+    <svg className="topline-signal-field" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true">
+      <path className="topline-signal-baseline" d="M0 128 H1200" />
+      <path
+        className="topline-signal-path topline-signal-path-ghost"
+        d="M0 116 L84 116 L116 82 L172 82 L204 128 L276 128 L314 62 L356 62 L402 112 L470 112 L506 94 L564 94 L606 40 L660 40 L704 116 L770 116 L810 76 L878 76 L916 126 L986 126 L1026 98 L1092 98 L1134 54 L1200 54"
+      />
+      <path
+        className="topline-signal-path topline-signal-path-live"
+        pathLength="100"
+        d="M0 116 L84 116 L116 82 L172 82 L204 128 L276 128 L314 62 L356 62 L402 112 L470 112 L506 94 L564 94 L606 40 L660 40 L704 116 L770 116 L810 76 L878 76 L916 126 L986 126 L1026 98 L1092 98 L1134 54 L1200 54"
+      />
+      <g className="topline-signal-nodes">
+        <circle cx="116" cy="82" r="4" />
+        <circle cx="314" cy="62" r="4" />
+        <circle className="is-current" cx="606" cy="40" r="5" />
+        <circle cx="810" cy="76" r="4" />
+        <circle cx="1134" cy="54" r="4" />
+      </g>
+    </svg>
+  )
+}
+
 function TrackerApp({ user, onSignOut }: TrackerAppProps) {
   const isDemo = import.meta.env.DEV && new URLSearchParams(window.location.search).has('demo')
   const [progress, setProgress] = useState<PersistedTracker>(() => loadTrackerState(isDemo, user.id))
@@ -1071,6 +1095,7 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
   return (
     <main className="app-shell" aria-busy={controlsDisabled}>
       <header className="topline">
+        <HeaderSignalTrace />
         <div className="brand-block">
           <h1>Inference Engineering</h1>
           <p>Inference + Java backend</p>

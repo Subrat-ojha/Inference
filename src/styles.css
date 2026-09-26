@@ -423,13 +423,71 @@ button {
 }
 
 .topline {
+  position: relative;
   min-height: 96px;
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(300px, 380px) minmax(230px, 1fr);
   align-items: start;
   gap: 38px;
   padding: 18px 32px 14px;
+  overflow: hidden;
   border-bottom: 1px solid var(--rule);
+  background: var(--paper-raised);
+  isolation: isolate;
+}
+
+.topline > :not(.topline-signal-field) {
+  position: relative;
+  z-index: 1;
+}
+
+.topline-signal-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.28;
+}
+
+.topline-signal-baseline,
+.topline-signal-path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.topline-signal-baseline {
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+
+.topline-signal-path-ghost {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+
+.topline-signal-path-live {
+  stroke: var(--green);
+  stroke-width: 2;
+  stroke-dasharray: 7 93;
+  stroke-linecap: square;
+  animation: topline-signal-travel 7s linear infinite;
+}
+
+.topline-signal-nodes circle {
+  fill: var(--paper-raised);
+  stroke: var(--rule-strong);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.topline-signal-nodes .is-current {
+  fill: var(--green);
+  stroke: var(--green);
+  animation: topline-signal-node 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .brand-block h1 {
@@ -1226,6 +1284,16 @@ input[type='number']:focus {
 @keyframes auth-pulse {
   from { opacity: 0.35; }
   to { opacity: 1; }
+}
+
+@keyframes topline-signal-travel {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -100; }
+}
+
+@keyframes topline-signal-node {
+  0%, 72%, 100% { opacity: 0.6; transform: scale(1); }
+  82% { opacity: 1; transform: scale(1.65); }
 }
 
 @media (max-width: 1050px) {
