@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import AuthGate, { type SignedInUser } from './AuthGate'
 import { AuthSessionError, getAccessToken } from './auth'
+import NotesVault, { vaultDemoNotes } from './NotesVault'
 
 type Task = {
   id: string
@@ -43,6 +44,7 @@ type PersistedTracker = {
 }
 type SyncStatus = 'loading' | 'saving' | 'saved' | 'offline' | 'local' | 'demo'
 type Theme = 'light' | 'dark'
+type PrimarySection = 'roadmap' | 'vault'
 
 const STORAGE_KEY = 'engineering-track:v3'
 const LEGACY_STORAGE_KEY = 'inference-track:v2'
@@ -869,6 +871,7 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme)
   const [isSigningOut, setIsSigningOut] = useState(false)
   const [accountError, setAccountError] = useState('')
+  const [primarySection, setPrimarySection] = useState<PrimarySection>('roadmap')
   const selectedTrack = progress.selectedTrack
   const trackDefinition = trackDefinitions[selectedTrack]
   const stages = trackDefinition.stages
@@ -1101,15 +1104,24 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
           <p>Inference + Java backend</p>
         </div>
 
-        <div className="overall-block">
-          <div className="measure-label">
-            <span>{overallProgress}% complete</span>
+        {primarySection === 'roadmap' ? (
+          <div className="overall-block">
+            <div className="measure-label">
+              <span>{overallProgress}% complete</span>
+            </div>
+            <progress value={completedTasks} max={totalTasks} aria-label={`${overallProgress}% complete`} />
           </div>
-          <progress value={completedTasks} max={totalTasks} aria-label={`${overallProgress}% complete`} />
-        </div>
+        ) : (
+          <div className="overall-block vault-overall-block">
+            <div className="measure-label"><span>Personal vault</span></div>
+            <p>Links · prompts · projects · text</p>
+          </div>
+        )}
 
         <div className="current-block">
-          <p>Current · {selectedTrack === 'inference' ? 'AI' : 'Java'} · stage {stageCode(activeStage)}</p>
+          <p>{primarySection === 'roadmap'
+            ? <>Current · {selectedTrack === 'inference' ? 'AI' : 'Java'} · stage {stageCode(activeStage)}</>
+            : <>Personal · private vault</>}</p>
           <div className="account-controls">
             <span className="account-email" title={user.email}>{user.email}</span>
             <button
@@ -1138,9 +1150,30 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
         </div>
       </header>
 
-      <span className={`sync-status is-${syncStatus}`} role="status" aria-live="polite">
-        {syncLabel[syncStatus]}
-      </span>
+      <nav className="primary-section-switcher" aria-label="Main sections">
+        <button
+          type="button"
+          className={primarySection === 'roadmap' ? 'is-active' : ''}
+          aria-pressed={primarySection === 'roadmap'}
+          onClick={() => setPrimarySection('roadmap')}
+        >
+          <strong>Engineering roadmap</strong><span>28 one-hour sprints</span>
+        </button>
+        <button
+          type="button"
+          className={primarySection === 'vault' ? 'is-active' : ''}
+          aria-pressed={primarySection === 'vault'}
+          onClick={() => setPrimarySection('vault')}
+        >
+          <strong>Personal vault</strong><span>Private notes and references</span>
+        </button>
+      </nav>
+
+      {primarySection === 'roadmap' ? (
+        <>
+          <span className={`sync-status is-${syncStatus}`} role="status" aria-live="polite">
+            {syncLabel[syncStatus]}
+          </span>
 
       <nav className="track-switcher" aria-label="Learning tracks" role="tablist">
         {(Object.keys(trackDefinitions) as TrackId[]).map((trackId, index) => {
@@ -1387,6 +1420,10 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
           Open stage
         </button>
       </nav>
+        </>
+      ) : (
+        <NotesVault apiUrl={API_URL} onSessionExpired={onSignOut} demoNotes={isDemo ? vaultDemoNotes : undefined} />
+      )}
     </main>
   )
 }

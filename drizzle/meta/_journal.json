@@ -15,6 +15,13 @@
       "when": 1790188368460,
       "tag": "0001_auth-user-ownership",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790399618768,
+      "tag": "0002_flimsy_prism",
+      "breakpoints": true
     }
   ]
 }

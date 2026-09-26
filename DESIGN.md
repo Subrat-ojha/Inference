@@ -79,7 +79,7 @@ Use paper tones for the canvas and raised fields, ink for primary content, and m
 
 ## Layout
 
-Treat each roadmap stage as a ledger row inside a centered reading column. **The One Open Sheet Rule:** only one stage should expose its reading, practice, hours, and notes at a time. A compact two-tab switch selects the inference or Java track without turning into a navigation sidebar. Use the desktop gutter above 1050px, reduce density below that point, and stack the detail columns below 700px. Controls must remain comfortable to tap on narrow screens.
+Treat each roadmap stage as a ledger row inside a centered reading column. **The One Open Sheet Rule:** only one stage should expose its reading, practice, hours, and notes at a time. A compact two-tab switch selects the inference or Java track without turning into a navigation sidebar. The top-level section switch keeps the engineering roadmap and personal vault equally accessible without mixing their content. Use the desktop gutter above 1050px, reduce density below that point, and stack the detail columns below 700px. Controls must remain comfortable to tap on narrow screens.
 
 ## Elevation & Depth
 
@@ -99,6 +99,9 @@ The system is intentionally square and technical. Inputs, buttons, checks, and p
 - **Study notes:** An optional full-width text area for questions, commands, and observations from the sprint.
 - **Progress rule:** A thin deterministic bar showing completed tasks across all stages, accompanied by an exact numeric label.
 - **Inference signal header:** A faint stepped trace sits behind the tracker header, with one moving green packet and one pulsing current node. It must remain subordinate to the account, stage, and progress content, adapt to both themes, and respect reduced-motion preferences.
+- **Primary section switcher:** Two full-width ledger tabs move between the engineering roadmap and personal vault while preserving the current account and theme controls.
+- **Personal vault:** A private, account-scoped workspace for GitHub references, prompts, projects, and freeform text. Desktop uses a filter rail, searchable results column, and reading/editor pane; narrow screens stack those regions without hiding actions.
+- **Vault note:** Each note has one type, title, body, optional URL, tags, pin state, and timestamps. Empty, loading, saving, error, delete-confirmation, and session-expired states must remain explicit.
 - **Sync status:** A persistent, non-interactive status notice for loading, saving, saved, offline queueing, or local fallback.
 - **Theme toggle:** A compact square switch in the status block. It follows the device on first visit, then remembers the learner's explicit choice.
 - **Reset confirmation:** A destructive action that expands beside its trigger and always offers an immediate safe exit.

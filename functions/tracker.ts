@@ -1,12 +1,14 @@
 import { attachDatabasePool } from "@neon/functions";
-import { eq } from "drizzle-orm";
+import { and, desc, eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/node-postgres";
-import { Hono } from "hono";
+import { Hono, type Context, type Next } from "hono";
 import { cors } from "hono/cors";
 import { createRemoteJWKSet, jwtVerify } from "jose";
 import { Pool } from "pg";
 import {
+  personalNotes,
   trackerStates,
+  type StoredNoteType,
   type StoredTrackerState,
   type StoredTrackState,
 } from "./db/schema";
@@ -22,19 +24,21 @@ const db = drizzle(pool);
 const jwks = createRemoteJWKSet(new URL(process.env.NEON_AUTH_JWKS_URL));
 const issuer = new URL(process.env.NEON_AUTH_BASE_URL).origin;
 
-const app = new Hono<{ Variables: { userId: string } }>();
+type AppEnv = { Variables: { userId: string } };
+
+const app = new Hono<AppEnv>();
 
 app.use(
   "*",
   cors({
     origin: "*",
     allowHeaders: ["Authorization", "Content-Type"],
-    allowMethods: ["GET", "PUT", "OPTIONS"],
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     maxAge: 86400,
   }),
 );
 
-app.use("/state", async (context, next) => {
+const requireAuth = async (context: Context<AppEnv>, next: Next) => {
   const authorization = context.req.header("authorization");
   if (!authorization?.toLowerCase().startsWith("bearer ")) {
     return context.json({ error: "Sign in is required." }, 401);
@@ -48,10 +52,58 @@ app.use("/state", async (context, next) => {
   } catch {
     return context.json({ error: "The session has expired. Sign in again." }, 401);
   }
-});
+};
+
+app.use("/state", requireAuth);
+app.use("/notes", requireAuth);
+app.use("/notes/*", requireAuth);
 
 function cleanText(value: unknown, maxLength: number): string {
   return typeof value === "string" ? value.slice(0, maxLength) : "";
+}
+
+const noteTypes = new Set<StoredNoteType>(["github", "prompt", "project", "text"]);
+const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+function cleanNoteInput(value: unknown) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const input = value as Record<string, unknown>;
+  const type = noteTypes.has(input.type as StoredNoteType)
+    ? input.type as StoredNoteType
+    : null;
+  const title = cleanText(input.title, 160).trim();
+  const body = cleanText(input.body, 10_000).trim();
+  const rawUrl = cleanText(input.url, 2_048).trim();
+  let url: string | null = null;
+
+  if (rawUrl) {
+    try {
+      const parsed = new URL(rawUrl);
+      if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
+      url = parsed.toString();
+    } catch {
+      return null;
+    }
+  }
+
+  const tags = Array.isArray(input.tags)
+    ? [...new Set(input.tags
+      .filter((tag): tag is string => typeof tag === "string")
+      .map((tag) => tag.trim().toLowerCase().replace(/^#/, "").slice(0, 32))
+      .filter(Boolean))].slice(0, 10)
+    : [];
+
+  if (!type || !title || !body) return null;
+  if (type === "github" && !url) return null;
+
+  return {
+    type,
+    title,
+    body,
+    url,
+    tags,
+    pinned: input.pinned === true,
+  };
 }
 
 function emptyTrack(stageCount: number): StoredTrackState {
@@ -192,10 +244,72 @@ app.put("/state", async (context) => {
   return context.json({ ok: true, updatedAt: saved.updatedAt });
 });
 
+app.get("/notes", async (context) => {
+  const userId = context.get("userId");
+  const rows = await db
+    .select()
+    .from(personalNotes)
+    .where(eq(personalNotes.userId, userId))
+    .orderBy(desc(personalNotes.pinned), desc(personalNotes.updatedAt))
+    .limit(500);
+
+  return context.json({ notes: rows });
+});
+
+app.post("/notes", async (context) => {
+  const userId = context.get("userId");
+  const contentLength = Number(context.req.header("content-length") ?? 0);
+  if (contentLength > 20_000) return context.json({ error: "Note payload is too large." }, 413);
+
+  const input = cleanNoteInput(await context.req.json().catch(() => null));
+  if (!input) return context.json({ error: "The note is invalid." }, 400);
+
+  const [note] = await db
+    .insert(personalNotes)
+    .values({ userId, ...input })
+    .returning();
+
+  return context.json({ note }, 201);
+});
+
+app.put("/notes/:id", async (context) => {
+  const userId = context.get("userId");
+  const id = context.req.param("id");
+  if (!uuidPattern.test(id)) return context.json({ error: "Note not found." }, 404);
+
+  const contentLength = Number(context.req.header("content-length") ?? 0);
+  if (contentLength > 20_000) return context.json({ error: "Note payload is too large." }, 413);
+  const input = cleanNoteInput(await context.req.json().catch(() => null));
+  if (!input) return context.json({ error: "The note is invalid." }, 400);
+
+  const [note] = await db
+    .update(personalNotes)
+    .set({ ...input, updatedAt: new Date() })
+    .where(and(eq(personalNotes.id, id), eq(personalNotes.userId, userId)))
+    .returning();
+
+  if (!note) return context.json({ error: "Note not found." }, 404);
+  return context.json({ note });
+});
+
+app.delete("/notes/:id", async (context) => {
+  const userId = context.get("userId");
+  const id = context.req.param("id");
+  if (!uuidPattern.test(id)) return context.json({ error: "Note not found." }, 404);
+
+  const [deleted] = await db
+    .delete(personalNotes)
+    .where(and(eq(personalNotes.id, id), eq(personalNotes.userId, userId)))
+    .returning({ id: personalNotes.id });
+
+  if (!deleted) return context.json({ error: "Note not found." }, 404);
+  return context.json({ ok: true });
+});
+
 app.notFound((context) => context.json({ error: "Not found." }, 404));
 app.onError((error, context) => {
-  console.error("Tracker API error", error);
-  return context.json({ error: "The tracker could not reach its database." }, 500);
+  console.error("Engineering API error", error);
+  return context.json({ error: "The app could not reach its database." }, 500);
 });
 
 export default app;
