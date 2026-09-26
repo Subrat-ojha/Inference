@@ -6,11 +6,18 @@ import './styles.css'
 import App from './App'
 
 const HeaderBackgroundDemo = React.lazy(() => import('./HeaderBackgroundDemo'))
-const showHeaderDemo = new URLSearchParams(window.location.search).has('header-demo')
+const NotesDesignDemo = React.lazy(() => import('./NotesDesignDemo'))
+const searchParams = new URLSearchParams(window.location.search)
+const showHeaderDemo = searchParams.has('header-demo')
+const showNotesDemo = searchParams.has('notes-demo')
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {showHeaderDemo ? (
+    {showNotesDemo ? (
+      <Suspense fallback={<main className="header-demo-loading">Loading notes study…</main>}>
+        <NotesDesignDemo />
+      </Suspense>
+    ) : showHeaderDemo ? (
       <Suspense fallback={<main className="header-demo-loading">Loading header study…</main>}>
         <HeaderBackgroundDemo />
       </Suspense>
