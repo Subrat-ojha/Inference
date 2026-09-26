@@ -1072,7 +1072,7 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
     <main className="app-shell" aria-busy={controlsDisabled}>
       <header className="topline">
         <div className="brand-block">
-          <h1>Engineering Track</h1>
+          <h1>Inference Engineering</h1>
           <p>Inference + Java backend</p>
         </div>
 

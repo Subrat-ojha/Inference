@@ -155,7 +155,7 @@ export default function AuthGate({ children }: AuthGateProps) {
       <section className="auth-ledger" aria-labelledby="auth-title">
         <header className="auth-heading">
           <div>
-            <h1 id="auth-title">Engineering Track</h1>
+            <h1 id="auth-title">Inference Engineering</h1>
             <p>Inference + Java backend</p>
           </div>
           <span className="auth-record-code">Private study record</span>
