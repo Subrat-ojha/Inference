@@ -12,11 +12,11 @@ React with Vite, backed by Lakebase Postgres on Neon through a Neon Function API
 
 ## Users
 
-A complete beginner who wants two independent learning paths: AI foundations through production inference engineering, and Java through Spring Boot, distributed systems, cloud, and DevOps. No prior AI knowledge is assumed; the Java path also starts from the language fundamentals.
+A complete beginner who wants two independent engineering learning paths, a private reference space, and a structured way to become easier to understand in spoken workplace English. No prior AI knowledge is assumed; the Java path also starts from the language fundamentals.
 
 ## Product Purpose
 
-Turn both engineering roadmaps into a lightweight personal study tracker. Success means the user can choose a track, see the current focus, follow specific official reading, complete a small practice task, and keep short notes without maintaining another project-management system.
+Turn engineering learning, private notes, and daily English practice into one lightweight personal record. Success means the user can see the next concrete action, open the exact learning resource, complete a bounded practice session, and keep evidence without maintaining another project-management system.
 
 ## Positioning
 
@@ -24,21 +24,26 @@ The inference track follows the dependency order a beginner needs: Python and nu
 
 ## Operating Context
 
-Used several times per week alongside reading and coding. Every stage is a one-hour orientation sprint: roughly 20 minutes of guided official reading, 35 minutes of practice, and 5 minutes of notes. A sprint is not a claim of mastery; the learner can repeat a stage or use its links for deeper study.
+Used alongside reading, coding, and daily speaking practice. Engineering stages are one-hour orientation sprints: roughly 20 minutes of guided official reading, 35 minutes of practice, and 5 minutes of notes. English clarity is a dated 45-minute daily run: 10 minutes listening and dictation, 10 minutes sound mechanics, 15 minutes shadowing, and 10 minutes workplace rehearsal with recording or ASR feedback. Neither format is a claim of mastery.
 
 ## Capabilities and Constraints
 
+- Three primary sections: the engineering roadmap, personal vault, and English clarity record.
 - Twelve inference stages and sixteen Java/backend stages, each with concrete reading and practice.
 - Independent overall and per-stage progress for both tracks.
 - A clear current-stage focus.
 - Short notes and a one-hour time log per stage.
-- Neon Auth login with account-scoped persistence, a browser-local fallback, and reset.
+- A private vault for GitHub links, project references, prompts, and freeform notes.
+- Thirty dated English clarity sessions from 26 September through 25 October 2026, each following the 10-minute listening, 10-minute mechanics, 15-minute shadowing, and 10-minute workplace sequence, with three workplace sentences per day (90 total).
+- Six reusable clip blocks repeat one clip for five days each so attention can move from meaning to sounds, rhythm, and delivery.
+- A consistent US or UK pronunciation model, explicit mouth and sound drills, shadowing, recording, dictation/ASR checks, and account-scoped practice notes.
+- Neon Auth login with account-scoped persistence and reset. English practice also keeps an account-keyed, versioned browser record with a dirty flag; unsynced changes remain local and retry when the browser comes online.
 - Responsive desktop and mobile layout.
 - Intentionally minimal scope: personal accounts only, with no collaboration or calendar integration; Neon Auth user IDs scope database rows.
 
 ## Research Basis
 
-The user explicitly stated that they know nothing about AI, so the inference path teaches prerequisites before serving and operations. The Java path reflects recurring requirements in current official engineering job postings and official interview guidance: Java and Spring Boot, REST, SQL and persistence, testing, distributed systems, Kafka, Docker and Kubernetes, CI/CD, cloud, observability, data structures, coding, and system design. There are no fabricated readiness or mastery claims.
+The user explicitly stated that they know nothing about AI, so the inference path teaches prerequisites before serving and operations. The Java path reflects recurring requirements in current official engineering job postings and official interview guidance: Java and Spring Boot, REST, SQL and persistence, testing, distributed systems, Kafka, Docker and Kubernetes, CI/CD, cloud, observability, data structures, coding, and system design. The English plan follows the user's research emphasis on intelligibility rather than accent removal, listen-first ear training, prosody, explicit mouth mechanics, repeated shadowing, minimal pairs, recording, and corrective feedback. There are no fabricated readiness, mastery, fluency, or native-accent claims.
 
 ## Product Principles
 
@@ -50,4 +55,4 @@ The user explicitly stated that they know nothing about AI, so the inference pat
 
 ## Accessibility & Inclusion
 
-Keyboard-operable controls, visible focus states, semantic progress information, readable contrast, reduced-motion support, and layouts that remain usable on small screens.
+Keyboard-operable controls, visible focus states, semantic progress information, readable contrast, reduced-motion support, and layouts that remain usable on small screens. Selecting a dated English session transfers focus to its active run sheet and brings that sheet into view on narrow screens.

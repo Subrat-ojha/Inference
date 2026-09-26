@@ -32,6 +32,13 @@ export const trackerStates = pgTable("tracker_states", {
 
 export type StoredNoteType = "github" | "prompt" | "project" | "text";
 
+export type StoredEnglishPracticeState = {
+  accent: "us" | "uk" | null;
+  completed: string[];
+  notes: Record<string, string>;
+  clips: Record<string, string>;
+};
+
 export const personalNotes = pgTable(
   "personal_notes",
   {
@@ -50,3 +57,9 @@ export const personalNotes = pgTable(
     index("personal_notes_user_updated_idx").on(table.userId, table.updatedAt),
   ],
 );
+
+export const englishPracticeStates = pgTable("english_practice_states", {
+  userId: text("user_id").primaryKey(),
+  state: jsonb("state").$type<StoredEnglishPracticeState>().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});

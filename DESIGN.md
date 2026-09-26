@@ -1,6 +1,6 @@
 ---
 name: Engineering Track
-description: A quiet study ledger for inference engineering and Java backend development.
+description: A quiet study ledger for engineering, private references, and English clarity practice.
 colors:
   paper: "#f7f7f4"
   paper-raised: "#fbfcfa"
@@ -79,7 +79,7 @@ Use paper tones for the canvas and raised fields, ink for primary content, and m
 
 ## Layout
 
-Treat each roadmap stage as a ledger row inside a centered reading column. **The One Open Sheet Rule:** only one stage should expose its reading, practice, hours, and notes at a time. A compact two-tab switch selects the inference or Java track without turning into a navigation sidebar. The top-level section switch keeps the engineering roadmap and personal vault equally accessible without mixing their content. Use the desktop gutter above 1050px, reduce density below that point, and stack the detail columns below 700px. Controls must remain comfortable to tap on narrow screens.
+Treat each roadmap stage as a ledger row inside a centered reading column. **The One Open Sheet Rule:** only one stage or one dated practice day should expose its full run sheet at a time. A compact two-tab switch selects the inference or Java track without turning into a navigation sidebar. The top-level section switch keeps exactly three primary sections (the engineering roadmap, personal vault, and English clarity record) equally accessible without mixing their content. Selecting a practice day moves keyboard focus to the active sheet; on narrow screens, bring that sheet into view. Use the desktop gutter above 1050px, reduce density below that point, and stack the detail columns below 700px. Controls must remain comfortable to tap on narrow screens.
 
 ## Elevation & Depth
 
@@ -99,10 +99,11 @@ The system is intentionally square and technical. Inputs, buttons, checks, and p
 - **Study notes:** An optional full-width text area for questions, commands, and observations from the sprint.
 - **Progress rule:** A thin deterministic bar showing completed tasks across all stages, accompanied by an exact numeric label.
 - **Inference signal header:** A faint stepped trace sits behind the tracker header, with one moving green packet and one pulsing current node. It must remain subordinate to the account, stage, and progress content, adapt to both themes, and respect reduced-motion preferences.
-- **Primary section switcher:** Two full-width ledger tabs move between the engineering roadmap and personal vault while preserving the current account and theme controls.
+- **Primary section switcher:** Three full-width ledger tabs move between the engineering roadmap, personal vault, and English clarity record while preserving the current account and theme controls.
 - **Personal vault:** A private, account-scoped workspace for GitHub references, prompts, projects, and freeform text. Desktop uses a filter rail, searchable results column, and reading/editor pane; narrow screens stack those regions without hiding actions.
 - **Vault note:** Each note has one type, title, body, optional URL, tags, pin state, and timestamps. Empty, loading, saving, error, delete-confirmation, and session-expired states must remain explicit.
-- **Sync status:** A persistent, non-interactive status notice for loading, saving, saved, offline queueing, or local fallback.
+- **English clarity ledger:** A private, account-scoped rehearsal record for the exact run from 26 September through 25 October 2026. Desktop pairs a sticky dated index with one active run sheet; narrow screens cap the index and move the selected day into view. Every day exposes the same 45-minute sequence: 10 minutes listening and dictation, 10 minutes sound mechanics, 15 minutes shadowing, and 10 minutes workplace rehearsal. It also includes three workplace sentences (90 total), completion state, and one short evidence note. The learner chooses one US or UK pronunciation model for consistency, and each of six clip links repeats across a five-day block. Copy must frame the goal as intelligibility while preserving the learner's accent, never as a fluency or accent-removal promise.
+- **Sync status:** A persistent, non-interactive status notice for loading, saving, saved, offline queueing, invalid clip links, or demo data. English practice saves to the signed-in user's Neon row while an account-keyed, versioned local record retains a dirty flag; failed writes remain in the browser and retry when the browser reports that it is online.
 - **Theme toggle:** A compact square switch in the status block. It follows the device on first visit, then remembers the learner's explicit choice.
 - **Reset confirmation:** A destructive action that expands beside its trigger and always offers an immediate safe exit.
 
@@ -112,6 +113,7 @@ The system is intentionally square and technical. Inputs, buttons, checks, and p
 - Do make the one-hour scope and the difference between orientation and mastery explicit.
 - Do preserve keyboard focus, readable contrast, and reduced-motion behavior.
 - Do keep synchronization state visible and truthful.
+- Don't promise fluency or accent removal from the dated English practice cycle.
 - Don't imply that passive reading equals engineering ability.
 - Don't use green as general decoration.
 - Don't hide multiple expanded stage sheets in the page.

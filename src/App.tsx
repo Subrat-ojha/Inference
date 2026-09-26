@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import AuthGate, { type SignedInUser } from './AuthGate'
 import { AuthSessionError, getAccessToken } from './auth'
+import EnglishPractice from './EnglishPractice'
 import NotesVault, { vaultDemoNotes } from './NotesVault'
 
 type Task = {
@@ -44,7 +45,7 @@ type PersistedTracker = {
 }
 type SyncStatus = 'loading' | 'saving' | 'saved' | 'offline' | 'local' | 'demo'
 type Theme = 'light' | 'dark'
-type PrimarySection = 'roadmap' | 'vault'
+type PrimarySection = 'roadmap' | 'vault' | 'english'
 
 const STORAGE_KEY = 'engineering-track:v3'
 const LEGACY_STORAGE_KEY = 'inference-track:v2'
@@ -1111,17 +1112,24 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
             </div>
             <progress value={completedTasks} max={totalTasks} aria-label={`${overallProgress}% complete`} />
           </div>
-        ) : (
+        ) : primarySection === 'vault' ? (
           <div className="overall-block vault-overall-block">
             <div className="measure-label"><span>Personal vault</span></div>
             <p>Links · prompts · projects · text</p>
+          </div>
+        ) : (
+          <div className="overall-block vault-overall-block">
+            <div className="measure-label"><span>English clarity</span></div>
+            <p>30 days · pronunciation · workplace speech</p>
           </div>
         )}
 
         <div className="current-block">
           <p>{primarySection === 'roadmap'
             ? <>Current · {selectedTrack === 'inference' ? 'AI' : 'Java'} · stage {stageCode(activeStage)}</>
-            : <>Personal · private vault</>}</p>
+            : primarySection === 'vault'
+              ? <>Personal · private vault</>
+              : <>Practice · 45 minutes daily</>}</p>
           <div className="account-controls">
             <span className="account-email" title={user.email}>{user.email}</span>
             <button
@@ -1166,6 +1174,14 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
           onClick={() => setPrimarySection('vault')}
         >
           <strong>Personal vault</strong><span>Private notes and references</span>
+        </button>
+        <button
+          type="button"
+          className={primarySection === 'english' ? 'is-active' : ''}
+          aria-pressed={primarySection === 'english'}
+          onClick={() => setPrimarySection('english')}
+        >
+          <strong>English clarity</strong><span>30-day speaking practice</span>
         </button>
       </nav>
 
@@ -1421,8 +1437,15 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
         </button>
       </nav>
         </>
-      ) : (
+      ) : primarySection === 'vault' ? (
         <NotesVault apiUrl={API_URL} onSessionExpired={onSignOut} demoNotes={isDemo ? vaultDemoNotes : undefined} />
+      ) : (
+        <EnglishPractice
+          apiUrl={API_URL}
+          userId={user.id}
+          isDemo={isDemo}
+          onSessionExpired={onSignOut}
+        />
       )}
     </main>
   )
