@@ -98,18 +98,23 @@ function ModelPipeline() {
 
 function FlyingBirds() {
   return (
-    <svg className="bird-flight-field" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true">
-      <g className="demo-bird demo-bird-one">
-        <path d="M-90 58 Q-78 44 -66 58 Q-54 44 -42 58" />
-      </g>
-      <g className="demo-bird demo-bird-two">
-        <path d="M-150 104 Q-141 94 -132 104 Q-123 94 -114 104" />
-      </g>
-      <g className="demo-bird demo-bird-three">
-        <path d="M-230 34 Q-222 25 -214 34 Q-206 25 -198 34" />
-      </g>
-      <path className="bird-horizon" d="M0 146 H1200" />
-    </svg>
+    <div className="bird-flight-field" aria-hidden="true">
+      {['one', 'two', 'three', 'four'].map((bird) => (
+        <span className={`demo-bird demo-bird-${bird}`} key={bird}>
+          <svg viewBox="0 0 120 64">
+            <path
+              className="bird-body"
+              d="M8 42 C18 37 25 31 35 28 C47 24 62 25 73 30 C81 23 89 19 99 20 C95 24 92 28 91 32 L112 39 L91 42 C84 50 70 54 55 52 C44 51 35 47 28 43 L11 57 L16 44 Z"
+            />
+            <path
+              className="bird-wing"
+              d="M35 30 C46 13 62 5 83 4 C77 13 70 23 62 35 C52 38 43 36 35 30 Z"
+            />
+            <circle className="bird-eye" cx="91" cy="27" r="1.4" />
+          </svg>
+        </span>
+      ))}
+    </div>
   )
 }
 
