@@ -97,23 +97,49 @@ function ModelPipeline() {
 }
 
 function FlyingBirds() {
+  const flock = [
+    { x: 118, y: 2, size: 30, delay: -0.1 },
+    { x: 86, y: 20, size: 27, delay: -0.45 },
+    { x: 150, y: 21, size: 26, delay: -0.75 },
+    { x: 58, y: 39, size: 24, delay: -0.25 },
+    { x: 181, y: 42, size: 23, delay: -0.6 },
+    { x: 30, y: 61, size: 20, delay: -0.9 },
+    { x: 211, y: 65, size: 20, delay: -0.35 },
+    { x: 101, y: 51, size: 23, delay: -0.7 },
+    { x: 136, y: 57, size: 21, delay: -0.15 },
+    { x: 73, y: 70, size: 19, delay: -0.5 },
+    { x: 166, y: 76, size: 18, delay: -0.82 },
+    { x: 238, y: 86, size: 16, delay: -0.3 },
+  ]
+
   return (
     <div className="bird-flight-field" aria-hidden="true">
-      {['one', 'two', 'three', 'four'].map((bird) => (
-        <span className={`demo-bird demo-bird-${bird}`} key={bird}>
-          <svg viewBox="0 0 120 64">
-            <path
-              className="bird-body"
-              d="M8 42 C18 37 25 31 35 28 C47 24 62 25 73 30 C81 23 89 19 99 20 C95 24 92 28 91 32 L112 39 L91 42 C84 50 70 54 55 52 C44 51 35 47 28 43 L11 57 L16 44 Z"
-            />
-            <path
-              className="bird-wing"
-              d="M35 30 C46 13 62 5 83 4 C77 13 70 23 62 35 C52 38 43 36 35 30 Z"
-            />
-            <circle className="bird-eye" cx="91" cy="27" r="1.4" />
-          </svg>
-        </span>
-      ))}
+      <div className="bird-flock">
+        {flock.map((bird, index) => (
+          <span
+            className="demo-bird"
+            key={`${bird.x}-${bird.y}`}
+            style={{
+              '--bird-x': `${bird.x}px`,
+              '--bird-y': `${bird.y}px`,
+              '--bird-size': `${bird.size}px`,
+              '--wing-delay': `${bird.delay}s`,
+            } as React.CSSProperties}
+          >
+            <svg viewBox="0 0 120 64">
+              <path
+                className="bird-body"
+                d="M8 42 C18 37 25 31 35 28 C47 24 62 25 73 30 C81 23 89 19 99 20 C95 24 92 28 91 32 L112 39 L91 42 C84 50 70 54 55 52 C44 51 35 47 28 43 L11 57 L16 44 Z"
+              />
+              <path
+                className="bird-wing"
+                d="M35 30 C46 13 62 5 83 4 C77 13 70 23 62 35 C52 38 43 36 35 30 Z"
+              />
+              {index < 4 && <circle className="bird-eye" cx="91" cy="27" r="1.4" />}
+            </svg>
+          </span>
+        ))}
+      </div>
     </div>
   )
 }

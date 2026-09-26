@@ -295,17 +295,26 @@
 
 .bird-flight-field {
   overflow: hidden;
-  opacity: 0.5;
+  opacity: 0.48;
+}
+
+.bird-flock {
+  position: absolute;
+  top: 16%;
+  left: -310px;
+  width: 270px;
+  height: 110px;
+  animation: bird-flock-fly 21s linear -5s infinite;
+  will-change: transform;
 }
 
 .demo-bird {
   position: absolute;
-  left: -130px;
+  top: var(--bird-y);
+  left: var(--bird-x);
   display: block;
-  width: 92px;
+  width: var(--bird-size);
   color: var(--muted);
-  animation: bird-fly 17s linear infinite;
-  will-change: transform;
 }
 
 .demo-bird svg {
@@ -328,48 +337,7 @@
   transform-box: fill-box;
   transform-origin: 28% 92%;
   animation: bird-wing 1.05s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-}
-
-.demo-bird-one {
-  top: 13%;
-  width: 94px;
-  animation-duration: 16s;
-}
-
-.demo-bird-two {
-  top: 52%;
-  width: 70px;
-  animation-duration: 20s;
-  animation-delay: -9s;
-  opacity: 0.72;
-}
-
-.demo-bird-three {
-  top: 5%;
-  width: 48px;
-  animation-duration: 25s;
-  animation-delay: -17s;
-  opacity: 0.55;
-}
-
-.demo-bird-four {
-  top: 66%;
-  width: 40px;
-  animation-duration: 29s;
-  animation-delay: -4s;
-  opacity: 0.42;
-}
-
-.demo-bird-two .bird-wing {
-  animation-delay: -0.38s;
-}
-
-.demo-bird-three .bird-wing {
-  animation-delay: -0.72s;
-}
-
-.demo-bird-four .bird-wing {
-  animation-delay: -0.2s;
+  animation-delay: var(--wing-delay);
 }
 
 .signal-field {
@@ -507,16 +475,16 @@
 .is-motion-paused .roadmap-field .is-current,
 .is-motion-paused .pipeline-line > span,
 .is-motion-paused .pipeline-node > span,
-.is-motion-paused .demo-bird,
+.is-motion-paused .bird-flock,
 .is-motion-paused .bird-wing {
   animation-play-state: paused;
 }
 
-@keyframes bird-fly {
-  0% { transform: translate3d(0, 4px, 0); }
-  38% { transform: translate3d(calc(38vw + 120px), -5px, 0); }
-  72% { transform: translate3d(calc(72vw + 210px), 3px, 0); }
-  100% { transform: translate3d(calc(100vw + 300px), -2px, 0); }
+@keyframes bird-flock-fly {
+  0% { transform: translate3d(0, 5px, 0) rotate(-1deg); }
+  38% { transform: translate3d(calc(38vw + 170px), -4px, 0) rotate(0deg); }
+  72% { transform: translate3d(calc(72vw + 260px), 4px, 0) rotate(1deg); }
+  100% { transform: translate3d(calc(100vw + 390px), -3px, 0) rotate(0deg); }
 }
 
 @keyframes bird-wing {
@@ -658,7 +626,7 @@
   .roadmap-field .is-current,
   .pipeline-line > span,
   .pipeline-node > span,
-  .demo-bird,
+  .bird-flock,
   .bird-wing {
     animation: none;
   }
