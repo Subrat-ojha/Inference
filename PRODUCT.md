@@ -28,7 +28,7 @@ Used alongside reading, coding, and daily speaking practice. Engineering stages 
 
 ## Capabilities and Constraints
 
-- Three primary sections: the engineering roadmap, personal vault, and English clarity record.
+- Four primary sections: the engineering roadmap, personal vault, English clarity record, and weekend planner.
 - Twelve inference stages and sixteen Java/backend stages, each with concrete reading and practice.
 - Independent overall and per-stage progress for both tracks.
 - A clear current-stage focus.
@@ -37,9 +37,11 @@ Used alongside reading, coding, and daily speaking practice. Engineering stages 
 - Thirty dated English clarity sessions from 26 September through 25 October 2026, each following the 10-minute listening, 10-minute mechanics, 15-minute shadowing, and 10-minute workplace sequence, with three workplace sentences per day (90 total).
 - Six reusable clip blocks repeat one clip for five days each so attention can move from meaning to sounds, rhythm, and delivery.
 - A consistent US or UK pronunciation model, explicit mouth and sound drills, shadowing, recording, dictation/ASR checks, and account-scoped practice notes.
+- A Saturday/Sunday-only task calendar with personal tasks, completion/removal, links, notes, and account-scoped Neon persistence.
+- Four Hyderabad event listings confirmed free or free with advance registration as of 26 September 2026, preloaded as tentative entries with their RSVP and source links. Tentative does not mean registered; the user controls each listing's planned state.
 - Neon Auth login with account-scoped persistence and reset. English practice also keeps an account-keyed, versioned browser record with a dirty flag; unsynced changes remain local and retry when the browser comes online.
 - Responsive desktop and mobile layout.
-- Intentionally minimal scope: personal accounts only, with no collaboration or calendar integration; Neon Auth user IDs scope database rows.
+- Intentionally minimal scope: personal accounts only, with no collaboration or external calendar integration; Neon Auth user IDs scope database rows.
 
 ## Research Basis
 

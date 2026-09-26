@@ -1,0 +1,566 @@
+.weekend-planner {
+  padding: 28px 32px 48px;
+}
+
+.weekend-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 18px;
+}
+
+.weekend-heading h2 {
+  margin: 0;
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.weekend-heading p {
+  max-width: 66ch;
+  margin: 9px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.weekend-sync {
+  min-width: 162px;
+  display: grid;
+  gap: 5px;
+  padding-left: 14px;
+  border-left: 1px solid var(--rule-strong);
+  font-family: 'JetBrains Mono Variable', monospace;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.weekend-sync span {
+  color: var(--muted);
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+}
+
+.weekend-sync b {
+  color: var(--green-dark);
+  font-size: 0.69rem;
+}
+
+.weekend-error {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  color: var(--danger-text);
+  border: 1px solid var(--danger-rule);
+  border-radius: 2px;
+  background: var(--danger-surface);
+}
+
+.weekend-date-strip {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  background: var(--paper-raised);
+}
+
+.weekend-date-strip > div:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.weekend-date-strip span,
+.weekend-events header > span,
+.weekend-agenda header > span {
+  color: var(--muted);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.weekend-date-strip strong {
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.weekend-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.weekend-arrows button,
+.weekend-add-event,
+.weekend-delete,
+.weekend-submit {
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: var(--paper-raised);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.weekend-arrows button:hover,
+.weekend-add-event:hover,
+.weekend-delete:hover {
+  background: var(--row-hover);
+}
+
+.weekend-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+  align-items: start;
+  margin-top: 22px;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.weekend-events,
+.weekend-agenda {
+  min-width: 0;
+}
+
+.weekend-events {
+  border-right: 1px solid var(--rule-strong);
+}
+
+.weekend-events > header,
+.weekend-agenda > header {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.weekend-events header h3,
+.weekend-agenda header h3 {
+  margin: 0;
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 1rem;
+  letter-spacing: -0.015em;
+}
+
+.weekend-events header p,
+.weekend-agenda header p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.weekend-events > ol,
+.weekend-day > ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.weekend-events > ol > li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 14px;
+  padding: 17px 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.weekend-events > ol > li:last-child {
+  border-bottom: 0;
+}
+
+.weekend-event-date {
+  display: grid;
+  justify-items: center;
+  padding-top: 2px;
+  color: var(--ink);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+}
+
+.weekend-event-date b {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.weekend-event-date small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.weekend-event-copy {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.weekend-event-copy > strong,
+.weekend-item-body > strong {
+  line-height: 1.3;
+}
+
+.weekend-event-copy > span {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.weekend-event-copy > .weekend-admission {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.weekend-event-copy p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.weekend-event-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.weekend-event-links a,
+.weekend-item-meta a {
+  color: var(--green-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.weekend-add-event {
+  min-height: 44px;
+  align-self: center;
+  white-space: nowrap;
+}
+
+.weekend-add-event:disabled {
+  color: var(--green-dark);
+  cursor: default;
+  opacity: 0.9;
+}
+
+.weekend-source-note,
+.weekend-empty-events {
+  margin: 0;
+  padding: 13px 18px;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.weekend-agenda:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.weekend-day {
+  padding: 14px 18px 6px;
+}
+
+.weekend-day + .weekend-day {
+  border-top: 1px solid var(--rule);
+}
+
+.weekend-day h4,
+.weekend-task-form h4 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.73rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.weekend-day h4 time {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.weekend-day > ol {
+  margin-top: 8px;
+}
+
+.weekend-day > ol > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.weekend-day > ol > li > label {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.weekend-item-title {
+  flex: 1 1 44%;
+}
+
+.weekend-day input[type='checkbox'] {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  margin: 2px 0 0;
+  accent-color: var(--green-dark);
+}
+
+.weekend-item-body {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.weekend-item-meta {
+  min-width: 0;
+  flex: 1 1 44%;
+  display: grid;
+  gap: 4px;
+}
+
+.weekend-item-meta > small,
+.weekend-item-meta > span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.weekend-day > ol > li.is-complete .weekend-item-body > strong {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.weekend-delete {
+  min-height: 36px;
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.weekend-tentative-toggle {
+  min-height: 36px;
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  color: var(--green-dark);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: var(--paper-raised);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.weekend-tentative-toggle:hover {
+  background: var(--row-hover);
+}
+
+.weekend-item-body > .weekend-event-status.is-tentative {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.weekend-item-body > .weekend-event-status.is-chosen {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.weekend-day-empty {
+  margin: 9px 0 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.weekend-task-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 18px;
+  border-top: 1px solid var(--rule-strong);
+  background: var(--paper-raised);
+}
+
+.weekend-task-form > label,
+.weekend-form-row > label {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.weekend-task-form label > span {
+  color: var(--muted);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.weekend-task-form input,
+.weekend-task-form select,
+.weekend-task-form textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 10px;
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: var(--field);
+  font: inherit;
+}
+
+.weekend-task-form textarea {
+  min-height: 82px;
+  resize: vertical;
+}
+
+.weekend-task-form input:focus,
+.weekend-task-form select:focus,
+.weekend-task-form textarea:focus,
+.weekend-arrows button:focus-visible,
+.weekend-add-event:focus-visible,
+.weekend-delete:focus-visible,
+.weekend-submit:focus-visible,
+.weekend-day input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.weekend-tentative-toggle:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.weekend-form-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 10px;
+}
+
+.weekend-submit {
+  min-height: 46px;
+  border-color: var(--green);
+  background: var(--green);
+  color: var(--selection-ink);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.weekend-submit:hover {
+  filter: brightness(0.96);
+}
+
+.weekend-submit:disabled,
+.weekend-delete:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+@media (max-width: 1050px) {
+  .weekend-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .weekend-events {
+    border-right: 0;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+}
+
+@media (max-width: 700px) {
+  .weekend-planner {
+    padding: 24px 0 34px;
+  }
+
+  .weekend-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0 20px 18px;
+    gap: 14px;
+  }
+
+  .weekend-heading p {
+    font-size: 0.92rem;
+  }
+
+  .weekend-sync {
+    width: 100%;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 8px 0 0;
+    border-top: 1px solid var(--rule);
+    border-left: 0;
+    text-align: left;
+  }
+
+  .weekend-date-strip {
+    margin: 0 12px;
+    padding: 12px;
+  }
+
+  .weekend-arrows button,
+  .weekend-add-event,
+  .weekend-delete,
+  .weekend-tentative-toggle,
+  .weekend-submit {
+    min-height: 44px;
+  }
+
+  .weekend-events > header,
+  .weekend-agenda > header {
+    padding-inline: 16px;
+  }
+
+  .weekend-events > ol > li {
+    grid-template-columns: 36px minmax(0, 1fr);
+    padding-inline: 14px;
+  }
+
+  .weekend-add-event {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .weekend-day {
+    padding-inline: 16px;
+  }
+
+  .weekend-task-form {
+    padding-inline: 16px;
+  }
+
+  .weekend-date-strip strong {
+    font-size: 0.86rem;
+  }
+
+  .weekend-source-note,
+  .weekend-empty-events {
+    padding-inline: 14px;
+  }
+}

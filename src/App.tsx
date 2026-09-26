@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import AuthGate, { type SignedInUser } from './AuthGate'
 import { AuthSessionError, getAccessToken } from './auth'
 import EnglishPractice from './EnglishPractice'
+import WeekendPlanner from './WeekendPlanner'
 import NotesVault, { vaultDemoNotes } from './NotesVault'
 
 type Task = {
@@ -45,7 +46,7 @@ type PersistedTracker = {
 }
 type SyncStatus = 'loading' | 'saving' | 'saved' | 'offline' | 'local' | 'demo'
 type Theme = 'light' | 'dark'
-type PrimarySection = 'roadmap' | 'vault' | 'english'
+type PrimarySection = 'roadmap' | 'vault' | 'english' | 'planner'
 
 const STORAGE_KEY = 'engineering-track:v3'
 const LEGACY_STORAGE_KEY = 'inference-track:v2'
@@ -1117,10 +1118,15 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
             <div className="measure-label"><span>Personal vault</span></div>
             <p>Links · prompts · projects · text</p>
           </div>
-        ) : (
+        ) : primarySection === 'english' ? (
           <div className="overall-block vault-overall-block">
             <div className="measure-label"><span>English clarity</span></div>
             <p>30 days · pronunciation · workplace speech</p>
+          </div>
+        ) : (
+          <div className="overall-block vault-overall-block">
+            <div className="measure-label"><span>Weekend planner</span></div>
+            <p>Saturday · Sunday · Hyderabad</p>
           </div>
         )}
 
@@ -1129,7 +1135,9 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
             ? <>Current · {selectedTrack === 'inference' ? 'AI' : 'Java'} · stage {stageCode(activeStage)}</>
             : primarySection === 'vault'
               ? <>Personal · private vault</>
-              : <>Practice · 45 minutes daily</>}</p>
+              : primarySection === 'english'
+                ? <>Practice · 45 minutes daily</>
+                : <>Plan · free weekends</>}</p>
           <div className="account-controls">
             <span className="account-email" title={user.email}>{user.email}</span>
             <button
@@ -1182,6 +1190,14 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
           onClick={() => setPrimarySection('english')}
         >
           <strong>English clarity</strong><span>30-day speaking practice</span>
+        </button>
+        <button
+          type="button"
+          className={primarySection === 'planner' ? 'is-active' : ''}
+          aria-pressed={primarySection === 'planner'}
+          onClick={() => setPrimarySection('planner')}
+        >
+          <strong>Weekend planner</strong><span>Tasks and free local events</span>
         </button>
       </nav>
 
@@ -1439,8 +1455,15 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
         </>
       ) : primarySection === 'vault' ? (
         <NotesVault apiUrl={API_URL} onSessionExpired={onSignOut} demoNotes={isDemo ? vaultDemoNotes : undefined} />
-      ) : (
+      ) : primarySection === 'english' ? (
         <EnglishPractice
+          apiUrl={API_URL}
+          userId={user.id}
+          isDemo={isDemo}
+          onSessionExpired={onSignOut}
+        />
+      ) : (
+        <WeekendPlanner
           apiUrl={API_URL}
           userId={user.id}
           isDemo={isDemo}

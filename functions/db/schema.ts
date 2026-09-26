@@ -39,6 +39,26 @@ export type StoredEnglishPracticeState = {
   clips: Record<string, string>;
 };
 
+export type StoredPlannerItem = {
+  id: string;
+  title: string;
+  date: string;
+  endDate: string;
+  startTime: string;
+  endTime: string;
+  location: string;
+  details: string;
+  url: string;
+  sourceUrl: string;
+  kind: "task" | "event";
+  tentative: boolean;
+  completed: boolean;
+};
+
+export type StoredWeekendPlannerState = {
+  items: StoredPlannerItem[];
+};
+
 export const personalNotes = pgTable(
   "personal_notes",
   {
@@ -61,5 +81,11 @@ export const personalNotes = pgTable(
 export const englishPracticeStates = pgTable("english_practice_states", {
   userId: text("user_id").primaryKey(),
   state: jsonb("state").$type<StoredEnglishPracticeState>().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const weekendPlannerStates = pgTable("weekend_planner_states", {
+  userId: text("user_id").primaryKey(),
+  state: jsonb("state").$type<StoredWeekendPlannerState>().notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 });

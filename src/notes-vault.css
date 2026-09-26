@@ -1,6 +1,6 @@
 .primary-section-switcher {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-bottom: 1px solid var(--rule-strong);
   background: var(--paper-raised);
 }
@@ -42,6 +42,20 @@
 .primary-section-switcher button span {
   font-size: 0.61rem;
   font-weight: 500;
+}
+
+@media (max-width: 1050px) {
+  .primary-section-switcher {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .primary-section-switcher button:nth-child(2) {
+    border-right: 0;
+  }
+
+  .primary-section-switcher button:nth-child(n + 3) {
+    border-top: 1px solid var(--rule);
+  }
 }
 
 .vault-overall-block p {

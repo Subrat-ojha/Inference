@@ -9,10 +9,13 @@ import {
   englishPracticeStates,
   personalNotes,
   trackerStates,
+  weekendPlannerStates,
   type StoredEnglishPracticeState,
+  type StoredPlannerItem,
   type StoredNoteType,
   type StoredTrackerState,
   type StoredTrackState,
+  type StoredWeekendPlannerState,
 } from "./db/schema";
 
 if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL is required.");
@@ -60,6 +63,7 @@ app.use("/state", requireAuth);
 app.use("/notes", requireAuth);
 app.use("/notes/*", requireAuth);
 app.use("/speech", requireAuth);
+app.use("/planner", requireAuth);
 
 function cleanText(value: unknown, maxLength: number): string {
   return typeof value === "string" ? value.slice(0, maxLength) : "";
@@ -117,6 +121,71 @@ function cleanSpeechState(value: unknown): StoredEnglishPracticeState | null {
     notes,
     clips,
   };
+}
+
+const emptyWeekendPlannerState: StoredWeekendPlannerState = { items: [] };
+const plannerDatePattern = /^\d{4}-\d{2}-\d{2}$/;
+const plannerTimePattern = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
+
+function isWeekendDate(value: unknown): value is string {
+  if (typeof value !== "string" || !plannerDatePattern.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00.000Z`);
+  if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== value) return false;
+  const day = parsed.getUTCDay();
+  return day === 0 || day === 6;
+}
+
+function cleanOptionalUrl(value: unknown): string | null {
+  if (typeof value !== "string" || !value.trim()) return "";
+  const candidate = value.trim().slice(0, 2_048);
+  try {
+    const parsed = new URL(candidate);
+    return parsed.protocol === "http:" || parsed.protocol === "https:" ? parsed.toString() : null;
+  } catch {
+    return null;
+  }
+}
+
+function cleanWeekendPlannerState(value: unknown): StoredWeekendPlannerState | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const input = value as Record<string, unknown>;
+  if (!Array.isArray(input.items) || input.items.length > 150) return null;
+  const items: StoredPlannerItem[] = [];
+
+  for (const rawItem of input.items) {
+    if (!rawItem || typeof rawItem !== "object" || Array.isArray(rawItem)) return null;
+    const item = rawItem as Record<string, unknown>;
+    if (typeof item.id !== "string" || !uuidPattern.test(item.id)) return null;
+    if (!isWeekendDate(item.date) || !isWeekendDate(item.endDate)) return null;
+    if (item.endDate < item.date || new Date(`${item.endDate}T00:00:00.000Z`).getTime() - new Date(`${item.date}T00:00:00.000Z`).getTime() > 86_400_000) return null;
+    const startTime = typeof item.startTime === "string" ? item.startTime : "";
+    const endTime = typeof item.endTime === "string" ? item.endTime : "";
+    if ((startTime && !plannerTimePattern.test(startTime)) || (endTime && !plannerTimePattern.test(endTime))) return null;
+    if (item.kind !== "task" && item.kind !== "event") return null;
+    const title = cleanText(item.title, 160).trim();
+    if (!title) return null;
+    const url = cleanOptionalUrl(item.url);
+    const sourceUrl = cleanOptionalUrl(item.sourceUrl);
+    if (url === null || sourceUrl === null) return null;
+
+    items.push({
+      id: item.id,
+      title,
+      date: item.date,
+      endDate: item.endDate,
+      startTime,
+      endTime,
+      location: cleanText(item.location, 240).trim(),
+      details: cleanText(item.details, 3_000).trim(),
+      url,
+      sourceUrl,
+      kind: item.kind,
+      tentative: item.kind === "event" && item.tentative !== false,
+      completed: item.completed === true,
+    });
+  }
+
+  return { items };
 }
 
 function cleanNoteInput(value: unknown) {
@@ -388,6 +457,38 @@ app.put("/speech", async (context) => {
       set: { state, updatedAt: new Date() },
     })
     .returning({ updatedAt: englishPracticeStates.updatedAt });
+
+  return context.json({ ok: true, updatedAt: saved.updatedAt });
+});
+
+app.get("/planner", async (context) => {
+  const userId = context.get("userId");
+  const [row] = await db
+    .select({ state: weekendPlannerStates.state, updatedAt: weekendPlannerStates.updatedAt })
+    .from(weekendPlannerStates)
+    .where(eq(weekendPlannerStates.userId, userId))
+    .limit(1);
+
+  return context.json(row ?? { state: emptyWeekendPlannerState, updatedAt: null });
+});
+
+app.put("/planner", async (context) => {
+  const userId = context.get("userId");
+  const contentLength = Number(context.req.header("content-length") ?? 0);
+  if (contentLength > 300_000) return context.json({ error: "Weekend plan is too large." }, 413);
+
+  const body = await context.req.json().catch(() => null) as { state?: unknown } | null;
+  const state = cleanWeekendPlannerState(body?.state);
+  if (!state) return context.json({ error: "Weekend plan is invalid. Tasks must fall on a Saturday or Sunday." }, 400);
+
+  const [saved] = await db
+    .insert(weekendPlannerStates)
+    .values({ userId, state, updatedAt: new Date() })
+    .onConflictDoUpdate({
+      target: weekendPlannerStates.userId,
+      set: { state, updatedAt: new Date() },
+    })
+    .returning({ updatedAt: weekendPlannerStates.updatedAt });
 
   return context.json({ ok: true, updatedAt: saved.updatedAt });
 });
