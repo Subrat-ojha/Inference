@@ -1,0 +1,612 @@
+.header-demo-page {
+  min-height: 100vh;
+  padding: 44px 32px 64px;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.header-demo-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: var(--muted);
+  background: var(--paper);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.demo-intro,
+.demo-options,
+.demo-footer {
+  width: min(1500px, 100%);
+  margin-inline: auto;
+}
+
+.demo-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.demo-intro h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: clamp(2.1rem, 5vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.demo-intro p {
+  max-width: 64ch;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.demo-intro .demo-disclosure {
+  margin-top: 10px;
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.demo-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.demo-toolbar button,
+.demo-toolbar a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 13px;
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: var(--paper-raised);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.demo-toolbar button:hover,
+.demo-toolbar a:hover {
+  border-color: var(--green);
+  color: var(--green-dark);
+}
+
+.demo-toolbar button:focus-visible,
+.demo-toolbar a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.demo-options {
+  display: grid;
+}
+
+.demo-option {
+  padding: 52px 0 58px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.demo-option-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 18px;
+}
+
+.demo-option-copy h2 {
+  margin: 0;
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.demo-option-copy p {
+  max-width: 68ch;
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.demo-option-copy > span {
+  padding-bottom: 2px;
+  color: var(--muted);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.demo-header {
+  position: relative;
+  min-height: 164px;
+  overflow: hidden;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: var(--paper-raised);
+  isolation: isolate;
+}
+
+.demo-header-grid {
+  position: relative;
+  z-index: 2;
+  min-height: 164px;
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(260px, 360px) minmax(250px, 1fr);
+  align-items: center;
+  gap: 38px;
+  padding: 28px 32px;
+}
+
+.demo-brand-block h2 {
+  margin: 0;
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.demo-brand-block p,
+.demo-current-block > p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.72rem;
+}
+
+.demo-overall-block {
+  align-self: center;
+}
+
+.demo-overall-block > span {
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.demo-overall-block progress {
+  width: 100%;
+  height: 12px;
+  display: block;
+  overflow: hidden;
+  border: 0;
+  border-radius: 2px;
+  background: var(--progress-track);
+}
+
+.demo-current-block {
+  justify-self: end;
+  text-align: right;
+}
+
+.demo-current-block > p {
+  margin-top: 0;
+  color: var(--green-dark);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.demo-account-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.demo-email {
+  max-width: 170px;
+  overflow: hidden;
+  color: var(--muted);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.65rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.demo-account-controls button {
+  min-height: 36px;
+  padding: 7px 9px;
+  color: var(--muted);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--paper-raised) 90%, transparent);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.demo-account-controls button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.demo-theme-preview {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.demo-switch {
+  position: relative;
+  width: 28px;
+  height: 15px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: var(--paper);
+}
+
+.demo-switch > span {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 1px;
+  background: var(--green);
+}
+
+.signal-field,
+.roadmap-field,
+.pipeline-field,
+.bird-flight-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bird-flight-field {
+  width: 100%;
+  height: 100%;
+  opacity: 0.38;
+}
+
+.demo-bird {
+  fill: none;
+  stroke: var(--rule-strong);
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.demo-bird-one {
+  animation: bird-fly 13s linear infinite;
+}
+
+.demo-bird-two {
+  animation: bird-fly 17s linear -7s infinite;
+}
+
+.demo-bird-three {
+  animation: bird-fly 21s linear -13s infinite;
+}
+
+.bird-horizon {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1;
+  stroke-dasharray: 3 12;
+  vector-effect: non-scaling-stroke;
+}
+
+.signal-field {
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+.signal-baseline {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+
+.signal-path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.signal-path-ghost {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+
+.signal-path-live {
+  stroke: var(--green);
+  stroke-width: 2;
+  stroke-dasharray: 7 93;
+  stroke-linecap: square;
+  animation: signal-travel 7s linear infinite;
+}
+
+.signal-nodes circle {
+  fill: var(--paper-raised);
+  stroke: var(--rule-strong);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.signal-nodes .is-current {
+  fill: var(--green);
+  stroke: var(--green);
+  animation: signal-node 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.roadmap-field {
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  align-items: end;
+  gap: clamp(4px, 0.8vw, 13px);
+  padding: 16px 22px 0;
+  opacity: 0.29;
+}
+
+.roadmap-field span {
+  height: var(--mark-height);
+  min-height: 18px;
+  border-top: 1px solid var(--rule-strong);
+  background: color-mix(in srgb, var(--rule) 72%, transparent);
+}
+
+.roadmap-field span.is-complete {
+  background: color-mix(in srgb, var(--green) 45%, transparent);
+  border-color: var(--green);
+}
+
+.roadmap-field span.is-current {
+  background: var(--green);
+  border-color: var(--green);
+  animation: roadmap-breathe 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  transform-origin: bottom;
+}
+
+.pipeline-field {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+  inset: auto 32px 10px;
+  height: 34px;
+  padding-inline: 4%;
+  opacity: 0.34;
+}
+
+.pipeline-line {
+  position: absolute;
+  right: 7%;
+  left: 7%;
+  top: 6px;
+  height: 1px;
+  overflow: visible;
+  background: var(--rule-strong);
+}
+
+.pipeline-line > span {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  background: var(--green);
+  animation: pipeline-packet 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.pipeline-node {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.pipeline-node > span {
+  width: 13px;
+  height: 13px;
+  border: 2px solid var(--rule-strong);
+  border-radius: 1px;
+  background: var(--paper-raised);
+  animation: pipeline-node 6s ease-in-out infinite;
+  animation-delay: calc(var(--node-index) * 1.5s);
+}
+
+.pipeline-node small {
+  position: absolute;
+  top: 17px;
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.is-motion-paused .signal-path-live,
+.is-motion-paused .signal-nodes .is-current,
+.is-motion-paused .roadmap-field .is-current,
+.is-motion-paused .pipeline-line > span,
+.is-motion-paused .pipeline-node > span,
+.is-motion-paused .demo-bird {
+  animation-play-state: paused;
+}
+
+@keyframes bird-fly {
+  0% { transform: translateX(0); }
+  46% { transform: translateX(650px) translateY(-5px); }
+  100% { transform: translateX(1450px); }
+}
+
+.demo-footer {
+  padding-top: 24px;
+  color: var(--muted);
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+@keyframes signal-travel {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -100; }
+}
+
+@keyframes signal-node {
+  0%, 72%, 100% { opacity: 0.6; transform: scale(1); }
+  82% { opacity: 1; transform: scale(1.65); }
+}
+
+@keyframes roadmap-breathe {
+  0%, 62%, 100% { opacity: 0.55; transform: scaleY(0.82); }
+  76% { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes pipeline-packet {
+  0%, 8% { left: 0; opacity: 0; }
+  14% { opacity: 1; }
+  86% { opacity: 1; }
+  94%, 100% { left: calc(100% - 7px); opacity: 0; }
+}
+
+@keyframes pipeline-node {
+  0%, 18%, 100% { border-color: var(--rule-strong); background: var(--paper-raised); }
+  24%, 34% { border-color: var(--green); background: var(--green-soft); }
+  42% { border-color: var(--rule-strong); background: var(--paper-raised); }
+}
+
+@media (max-width: 1300px) {
+  .demo-intro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .demo-toolbar {
+    justify-content: flex-start;
+  }
+
+  .demo-option-copy {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .demo-option-copy > span {
+    text-align: left;
+  }
+
+  .demo-header-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .demo-current-block {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .demo-overall-block {
+    grid-column: 1 / -1;
+  }
+
+  .demo-header-pipeline .demo-header-grid {
+    padding-bottom: 68px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header-demo-page {
+    padding: 26px 20px 48px;
+  }
+
+  .demo-toolbar {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .demo-toolbar button,
+  .demo-toolbar a {
+    flex: 1 1 145px;
+  }
+
+  .demo-option {
+    padding-block: 38px 44px;
+  }
+
+  .demo-header-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 24px 20px;
+  }
+
+  .demo-current-block,
+  .demo-overall-block {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: stretch;
+    text-align: left;
+  }
+
+  .demo-account-controls {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .demo-account-controls button {
+    min-height: 44px;
+  }
+
+  .roadmap-field {
+    gap: 3px;
+    padding-inline: 10px;
+  }
+
+  .pipeline-field {
+    right: 20px;
+    left: 20px;
+    padding-inline: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-path-live,
+  .signal-nodes .is-current,
+  .roadmap-field .is-current,
+  .pipeline-line > span,
+  .pipeline-node > span,
+  .demo-bird {
+    animation: none;
+  }
+}
