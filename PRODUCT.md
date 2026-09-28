@@ -16,7 +16,7 @@ A complete beginner who wants two independent engineering learning paths, a priv
 
 ## Product Purpose
 
-Turn engineering learning, private notes, and daily English practice into one lightweight personal record. Success means the user can see the next concrete action, open the exact learning resource, complete a bounded practice session, and keep evidence without maintaining another project-management system.
+Turn engineering learning, private notes, daily English practice, and personal scheduling into one lightweight record. Success means the user can see the next concrete action, open the exact learning resource, complete a bounded practice session, and keep evidence without maintaining another project-management system.
 
 ## Positioning
 
@@ -28,7 +28,7 @@ Used alongside reading, coding, and daily speaking practice. Engineering stages 
 
 ## Capabilities and Constraints
 
-- Four primary sections: the engineering roadmap, personal vault, English clarity record, and weekend planner.
+- Five primary sections: the engineering roadmap, personal vault, English clarity record, weekend planner, and personal schedule.
 - Twelve inference stages and sixteen Java/backend stages, each with concrete reading and practice.
 - Independent overall and per-stage progress for both tracks.
 - A clear current-stage focus.
@@ -38,6 +38,7 @@ Used alongside reading, coding, and daily speaking practice. Engineering stages 
 - Six reusable clip blocks repeat one clip for five days each so attention can move from meaning to sounds, rhythm, and delivery.
 - A consistent US or UK pronunciation model, explicit mouth and sound drills, shadowing, recording, dictation/ASR checks, and account-scoped practice notes.
 - A Saturday/Sunday-only task calendar with personal tasks, completion/removal, links, notes, and account-scoped Neon persistence.
+- An all-date personal schedule with a month calendar, selected-day agenda, complete entries view, tasks and events, all-day or timed and multi-day entries, categories, locations, links, notes, editing, completion/removal, and account-scoped Neon persistence with versioned browser recovery and retry.
 - Four Hyderabad event listings confirmed free or free with advance registration as of 26 September 2026, preloaded as tentative entries with their RSVP and source links. Tentative does not mean registered; the user controls each listing's planned state.
 - Neon Auth login with account-scoped persistence and reset. English practice also keeps an account-keyed, versioned browser record with a dirty flag; unsynced changes remain local and retry when the browser comes online.
 - Responsive desktop and mobile layout.

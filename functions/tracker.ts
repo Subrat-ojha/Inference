@@ -8,11 +8,14 @@ import { Pool } from "pg";
 import {
   englishPracticeStates,
   personalNotes,
+  scheduleStates,
   trackerStates,
   weekendPlannerStates,
   type StoredEnglishPracticeState,
   type StoredPlannerItem,
   type StoredNoteType,
+  type StoredScheduleItem,
+  type StoredScheduleState,
   type StoredTrackerState,
   type StoredTrackState,
   type StoredWeekendPlannerState,
@@ -64,6 +67,7 @@ app.use("/notes", requireAuth);
 app.use("/notes/*", requireAuth);
 app.use("/speech", requireAuth);
 app.use("/planner", requireAuth);
+app.use("/schedule", requireAuth);
 
 function cleanText(value: unknown, maxLength: number): string {
   return typeof value === "string" ? value.slice(0, maxLength) : "";
@@ -181,6 +185,63 @@ function cleanWeekendPlannerState(value: unknown): StoredWeekendPlannerState | n
       sourceUrl,
       kind: item.kind,
       tentative: item.kind === "event" && item.tentative !== false,
+      completed: item.completed === true,
+    });
+  }
+
+  return { items };
+}
+
+const scheduleDatePattern = /^\d{4}-\d{2}-\d{2}$/;
+const scheduleTimePattern = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
+const scheduleCategories = new Set<StoredScheduleItem["category"]>(["work", "personal", "learning", "health", "travel", "other"]);
+const emptyScheduleState: StoredScheduleState = { items: [] };
+
+function isScheduleDate(value: unknown): value is string {
+  if (typeof value !== "string" || !scheduleDatePattern.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00.000Z`);
+  return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+}
+
+function cleanScheduleState(value: unknown): StoredScheduleState | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const input = value as Record<string, unknown>;
+  if (!Array.isArray(input.items) || input.items.length > 500) return null;
+  const items: StoredScheduleItem[] = [];
+
+  for (const rawItem of input.items) {
+    if (!rawItem || typeof rawItem !== "object" || Array.isArray(rawItem)) return null;
+    const item = rawItem as Record<string, unknown>;
+    if (typeof item.id !== "string" || !uuidPattern.test(item.id)) return null;
+    if (!isScheduleDate(item.date) || !isScheduleDate(item.endDate) || item.endDate < item.date) return null;
+    const duration = new Date(`${item.endDate}T00:00:00.000Z`).getTime() - new Date(`${item.date}T00:00:00.000Z`).getTime();
+    if (duration > 3_660 * 86_400_000) return null;
+    const startTime = typeof item.startTime === "string" ? item.startTime : "";
+    const endTime = typeof item.endTime === "string" ? item.endTime : "";
+    if ((startTime && !scheduleTimePattern.test(startTime)) || (endTime && !scheduleTimePattern.test(endTime))) return null;
+    if (item.date === item.endDate && startTime && endTime && endTime <= startTime) return null;
+    if (item.kind !== "task" && item.kind !== "event") return null;
+    const title = cleanText(item.title, 160).trim();
+    if (!title) return null;
+    const url = cleanOptionalUrl(item.url);
+    if (url === null) return null;
+    const category = scheduleCategories.has(item.category as StoredScheduleItem["category"])
+      ? item.category as StoredScheduleItem["category"]
+      : "other";
+
+    items.push({
+      id: item.id,
+      title,
+      date: item.date,
+      endDate: item.endDate,
+      startTime,
+      endTime,
+      allDay: item.allDay === true,
+      kind: item.kind,
+      category,
+      location: cleanText(item.location, 240).trim(),
+      details: cleanText(item.details, 3_000).trim(),
+      url,
       completed: item.completed === true,
     });
   }
@@ -489,6 +550,38 @@ app.put("/planner", async (context) => {
       set: { state, updatedAt: new Date() },
     })
     .returning({ updatedAt: weekendPlannerStates.updatedAt });
+
+  return context.json({ ok: true, updatedAt: saved.updatedAt });
+});
+
+app.get("/schedule", async (context) => {
+  const userId = context.get("userId");
+  const [row] = await db
+    .select({ state: scheduleStates.state, updatedAt: scheduleStates.updatedAt })
+    .from(scheduleStates)
+    .where(eq(scheduleStates.userId, userId))
+    .limit(1);
+
+  return context.json(row ?? { state: emptyScheduleState, updatedAt: null });
+});
+
+app.put("/schedule", async (context) => {
+  const userId = context.get("userId");
+  const contentLength = Number(context.req.header("content-length") ?? 0);
+  if (contentLength > 2_000_000) return context.json({ error: "Schedule is too large." }, 413);
+
+  const body = await context.req.json().catch(() => null) as { state?: unknown } | null;
+  const state = cleanScheduleState(body?.state);
+  if (!state) return context.json({ error: "Schedule is invalid. Check dates, times, and entry details." }, 400);
+
+  const [saved] = await db
+    .insert(scheduleStates)
+    .values({ userId, state, updatedAt: new Date() })
+    .onConflictDoUpdate({
+      target: scheduleStates.userId,
+      set: { state, updatedAt: new Date() },
+    })
+    .returning({ updatedAt: scheduleStates.updatedAt });
 
   return context.json({ ok: true, updatedAt: saved.updatedAt });
 });

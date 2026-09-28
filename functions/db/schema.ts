@@ -59,6 +59,30 @@ export type StoredWeekendPlannerState = {
   items: StoredPlannerItem[];
 };
 
+export type StoredScheduleItem = {
+  id: string;
+  title: string;
+  date: string;
+  endDate: string;
+  startTime: string;
+  endTime: string;
+  allDay: boolean;
+  kind: "task" | "event";
+  category: "work" | "personal" | "learning" | "health" | "travel" | "other";
+  location: string;
+  details: string;
+  url: string;
+  completed: boolean;
+};
+
+export type StoredScheduleState = { items: StoredScheduleItem[] };
+
+export const scheduleStates = pgTable("schedule_states", {
+  userId: text("user_id").primaryKey(),
+  state: jsonb("state").$type<StoredScheduleState>().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 export const personalNotes = pgTable(
   "personal_notes",
   {

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import AuthGate, { type SignedInUser } from './AuthGate'
 import { AuthSessionError, getAccessToken } from './auth'
 import EnglishPractice from './EnglishPractice'
+import Schedule from './Schedule'
 import WeekendPlanner from './WeekendPlanner'
 import NotesVault, { vaultDemoNotes } from './NotesVault'
 
@@ -46,7 +47,7 @@ type PersistedTracker = {
 }
 type SyncStatus = 'loading' | 'saving' | 'saved' | 'offline' | 'local' | 'demo'
 type Theme = 'light' | 'dark'
-type PrimarySection = 'roadmap' | 'vault' | 'english' | 'planner'
+type PrimarySection = 'roadmap' | 'vault' | 'english' | 'planner' | 'schedule'
 
 const STORAGE_KEY = 'engineering-track:v3'
 const LEGACY_STORAGE_KEY = 'inference-track:v2'
@@ -1123,10 +1124,15 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
             <div className="measure-label"><span>English clarity</span></div>
             <p>30 days · pronunciation · workplace speech</p>
           </div>
-        ) : (
+        ) : primarySection === 'planner' ? (
           <div className="overall-block vault-overall-block">
             <div className="measure-label"><span>Weekend planner</span></div>
             <p>Saturday · Sunday · Hyderabad</p>
+          </div>
+        ) : (
+          <div className="overall-block vault-overall-block">
+            <div className="measure-label"><span>Personal schedule</span></div>
+            <p>Dates · appointments · tasks</p>
           </div>
         )}
 
@@ -1137,7 +1143,9 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
               ? <>Personal · private vault</>
               : primarySection === 'english'
                 ? <>Practice · 45 minutes daily</>
-                : <>Plan · free weekends</>}</p>
+                : primarySection === 'planner'
+                  ? <>Plan · free weekends</>
+                  : <>Schedule · your dates and plans</>}</p>
           <div className="account-controls">
             <span className="account-email" title={user.email}>{user.email}</span>
             <button
@@ -1198,6 +1206,14 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
           onClick={() => setPrimarySection('planner')}
         >
           <strong>Weekend planner</strong><span>Tasks and free local events</span>
+        </button>
+        <button
+          type="button"
+          className={primarySection === 'schedule' ? 'is-active' : ''}
+          aria-pressed={primarySection === 'schedule'}
+          onClick={() => setPrimarySection('schedule')}
+        >
+          <strong>My schedule</strong><span>All dates, tasks, and plans</span>
         </button>
       </nav>
 
@@ -1462,13 +1478,15 @@ function TrackerApp({ user, onSignOut }: TrackerAppProps) {
           isDemo={isDemo}
           onSessionExpired={onSignOut}
         />
-      ) : (
+      ) : primarySection === 'planner' ? (
         <WeekendPlanner
           apiUrl={API_URL}
           userId={user.id}
           isDemo={isDemo}
           onSessionExpired={onSignOut}
         />
+      ) : (
+        <Schedule apiUrl={API_URL} userId={user.id} isDemo={isDemo} onSessionExpired={onSignOut} />
       )}
     </main>
   )
