@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
 import { AuthSessionError, getAccessToken } from './auth'
-import { hyderabadWeekendEvents } from './weekend-events'
+import { hyderabadWeekendEvents, weekendEventsCheckedOn } from './weekend-events'
 import './weekend-planner.css'
 
 type PlannerItem = {
@@ -261,7 +261,9 @@ export default function WeekendPlanner({ apiUrl, userId, isDemo = false, onSessi
   const thisWeekendItems = useMemo(() => state.items
     .filter((item) => item.date <= sunday && item.endDate >= weekend)
     .sort((a, b) => a.startTime.localeCompare(b.startTime) || a.title.localeCompare(b.title)), [state.items, sunday, weekend])
-  const upcomingEvents = hyderabadWeekendEvents.filter((event) => event.endDate >= dateKey(new Date()))
+  const upcomingEvents = hyderabadWeekendEvents
+    .filter((event) => event.endDate >= dateKey(new Date()))
+    .sort((a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime) || a.title.localeCompare(b.title))
   const completedCount = state.items.filter((item) => item.completed).length
 
   const addEvent = (eventId: string) => {
@@ -361,14 +363,14 @@ export default function WeekendPlanner({ apiUrl, userId, isDemo = false, onSessi
           <header>
             <div>
               <h3 id="weekend-events-title">Free Hyderabad events</h3>
-              <p>Upcoming weekend picks · checked 26 Sep 2026</p>
+              <p>Free entry only · checked {formatDate(weekendEventsCheckedOn, { day: 'numeric', month: 'short', year: 'numeric' })} · times in IST</p>
             </div>
             <span>{upcomingEvents.length} listings</span>
           </header>
           {upcomingEvents.length ? (
             <ol>
               {upcomingEvents.map((event) => {
-                const saved = state.items.some((item) => item.id === event.id)
+                const saved = state.items.find((item) => item.id === event.id)
                 return (
                   <li key={event.id}>
                     <div className="weekend-event-date">
@@ -377,16 +379,16 @@ export default function WeekendPlanner({ apiUrl, userId, isDemo = false, onSessi
                     </div>
                     <div className="weekend-event-copy">
                       <strong>{event.title}</strong>
-                      <span>{event.startTime ? `${event.startTime}–${event.endTime} · ` : 'Full day · '}{event.location}</span>
+                      <span>{event.endDate !== event.date && `${formatDate(event.date)} – ${formatDate(event.endDate)} · `}{event.startTime ? `${event.startTime}${event.endTime ? `–${event.endTime}` : ' onwards'} · ` : 'See timing details · '}{event.location}</span>
                       <span className="weekend-admission">{event.admission}</span>
                       <p>{event.description}</p>
                       <div className="weekend-event-links">
-                        <a href={event.registrationUrl} target="_blank" rel="noreferrer">Registration details</a>
+                        <a href={event.registrationUrl} target="_blank" rel="noreferrer">{event.registrationRequired === false ? 'Event details' : 'Registration details'}</a>
                         {event.sourceUrl !== event.registrationUrl && <a href={event.sourceUrl} target="_blank" rel="noreferrer">Event source</a>}
                       </div>
                     </div>
-                    <button type="button" className="weekend-add-event" disabled={saved || !hydrated && !isDemo} onClick={() => addEvent(event.id)}>
-                      {saved ? 'Tentative in plan' : 'Add as tentative'}
+                    <button type="button" className="weekend-add-event" disabled={Boolean(saved) || !hydrated && !isDemo} onClick={() => addEvent(event.id)}>
+                      {saved ? saved.tentative ? 'Tentative in plan' : 'Chosen in plan' : 'Add as tentative'}
                     </button>
                   </li>
                 )
@@ -395,14 +397,14 @@ export default function WeekendPlanner({ apiUrl, userId, isDemo = false, onSessi
           ) : (
             <p className="weekend-empty-events">No upcoming picks are listed right now. Your saved weekend tasks stay here; check again for new local listings.</p>
           )}
-          <p className="weekend-source-note">Listings can change. Check the organizer before travelling; saving an event here does not register you.</p>
+          <p className="weekend-source-note">Free means ₹0 admission through the stated entry route. Travel, parking, and optional purchases are separate. Check availability before travelling; saving here does not register you.</p>
         </section>
 
         <section className="weekend-agenda" ref={agendaRef} tabIndex={-1} aria-labelledby="weekend-agenda-title">
           <header>
             <div>
               <h3 id="weekend-agenda-title">My weekend plan</h3>
-              <p>{thisWeekendItems.length ? `${thisWeekendItems.length} items · Saturday and Sunday only` : 'Nothing saved for this weekend yet.'}</p>
+              <p>{thisWeekendItems.length ? `${thisWeekendItems.length} items · choose between overlapping tentative events` : 'Nothing saved for this weekend yet.'}</p>
             </div>
             <span>{formatDate(weekend)} / {formatDate(sunday)}</span>
           </header>
@@ -421,14 +423,18 @@ export default function WeekendPlanner({ apiUrl, userId, isDemo = false, onSessi
                           <input type="checkbox" checked={item.completed} disabled={!hydrated && !isDemo} onChange={() => toggleComplete(item.id)} />
                           <span className="weekend-item-body">
                             <strong>{item.title}</strong>
-                            {item.kind === 'event' && <small className={`weekend-event-status${item.tentative ? ' is-tentative' : ' is-chosen'}`}>{item.tentative ? 'Tentative · not registered' : 'Chosen · registration still separate'}</small>}
+                            {item.kind === 'event' && <small className={`weekend-event-status${item.tentative ? ' is-tentative' : ' is-chosen'}`}>{hyderabadWeekendEvents.find((event) => event.id === item.id)?.registrationRequired === false
+                              ? item.tentative ? 'Tentative · free entry' : 'Chosen · free entry'
+                              : item.tentative ? 'Tentative · not registered' : 'Chosen · registration still separate'}</small>}
                           </span>
                         </label>
                         <div className="weekend-item-meta">
                           {(item.startTime || item.endTime) && <small>{item.startTime}{item.endTime ? `–${item.endTime}` : ''}</small>}
                           {item.location && <small>{item.location}</small>}
                           {item.details && <span>{item.details}</span>}
-                          {item.url && <a href={item.url} target="_blank" rel="noreferrer">{item.kind === 'event' ? 'Open registration' : 'Open link'}</a>}
+                          {item.url && <a href={item.url} target="_blank" rel="noreferrer">{item.kind === 'event'
+                            ? hyderabadWeekendEvents.find((event) => event.id === item.id)?.registrationRequired === false ? 'Event details' : 'Open registration'
+                            : 'Open link'}</a>}
                           {item.sourceUrl && item.sourceUrl !== item.url && <a href={item.sourceUrl} target="_blank" rel="noreferrer">Verify event details</a>}
                         </div>
                         {item.kind === 'event' && <button type="button" className="weekend-tentative-toggle" disabled={!hydrated && !isDemo} onClick={() => toggleTentative(item.id)}>{item.tentative ? 'Mark chosen' : 'Mark tentative'}</button>}
