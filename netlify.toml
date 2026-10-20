@@ -4,6 +4,19 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  VITE_NEON_AUTH_URL = "/api/neon-auth"
+  VITE_TRACKER_API_URL = "/api/tracker"
+[[redirects]]
+  from = "/api/neon-auth/*"
+  to = "https://ep-raspy-bonus-b5fun27l.neonauth.c-7.us-east-2.aws.neon.tech/neondb/auth/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/tracker/*"
+  to = "https://br-odd-scene-b5xcgi0s-tracker.compute.c-7.us-east-2.aws.neon.tech/:splat"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/*"

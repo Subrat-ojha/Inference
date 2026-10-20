@@ -56,7 +56,9 @@ const RESET_PENDING_KEY = 'inference-track:reset-pending:v1'
 const THEME_KEY = 'inference-track:theme:v1'
 const API_URL = (
   (import.meta.env.VITE_TRACKER_API_URL as string | undefined)
-  ?? 'https://br-odd-scene-b5xcgi0s-tracker.compute.c-7.us-east-2.aws.neon.tech'
+  ?? (import.meta.env.PROD
+    ? '/api/tracker'
+    : 'https://br-odd-scene-b5xcgi0s-tracker.compute.c-7.us-east-2.aws.neon.tech')
 ).replace(/\/$/, '')
 
 const inferenceStages: Stage[] = [

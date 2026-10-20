@@ -19,9 +19,11 @@ This repository includes `netlify.toml`, so Git-based Netlify deployments use:
 - Node.js 22
 - An SPA fallback to `index.html`
 
-The public Neon Auth and tracker API endpoints have deployment-safe defaults.
-They can be overridden with `VITE_NEON_AUTH_URL` and
-`VITE_TRACKER_API_URL` in Netlify's environment variables.
+Production browser requests use same-origin `/api/neon-auth` and `/api/tracker`
+proxies declared in `netlify.toml`. This avoids client-side DNS failures for
+Neon's service subdomains while preserving Neon Auth cookies and authorization
+headers. Another host must provide equivalent proxy routes or override
+`VITE_NEON_AUTH_URL` and `VITE_TRACKER_API_URL` with reachable public endpoints.
 
-For sign-in on a production Netlify domain, add the site's exact `https://...`
-origin to the trusted domains for the Neon Auth configuration.
+For sign-in on a production domain, add its exact `https://...` origin to the
+trusted domains for the Neon Auth configuration.

@@ -1,10 +1,12 @@
 import { createAuthClient } from '@neondatabase/auth'
 import { BetterAuthVanillaAdapter } from '@neondatabase/auth/vanilla/adapters'
 
-// Neon Auth's client URL is public (like the API URL), so keeping a deployed
-// fallback makes static hosts work even when they do not receive local .env files.
-const DEFAULT_NEON_AUTH_URL =
-  'https://ep-raspy-bonus-b5fun27l.neonauth.c-7.us-east-2.aws.neon.tech/neondb/auth'
+// Production traffic goes through the app origin. Some ISP resolvers reject
+// Neon's service subdomains even though public DNS resolves them; the Netlify
+// proxy keeps authentication reachable without changing the user's DNS.
+const DEFAULT_NEON_AUTH_URL = import.meta.env.PROD
+  ? `${window.location.origin}/api/neon-auth`
+  : 'https://ep-raspy-bonus-b5fun27l.neonauth.c-7.us-east-2.aws.neon.tech/neondb/auth'
 const configuredAuthUrl = (
   (import.meta.env.VITE_NEON_AUTH_URL as string | undefined)
   || DEFAULT_NEON_AUTH_URL
