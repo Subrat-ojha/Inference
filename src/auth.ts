@@ -7,10 +7,10 @@ import { BetterAuthVanillaAdapter } from '@neondatabase/auth/vanilla/adapters'
 const DEFAULT_NEON_AUTH_URL = import.meta.env.PROD
   ? `${window.location.origin}/api/neon-auth`
   : 'https://ep-raspy-bonus-b5fun27l.neonauth.c-7.us-east-2.aws.neon.tech/neondb/auth'
-const configuredAuthUrl = (
-  (import.meta.env.VITE_NEON_AUTH_URL as string | undefined)
-  || DEFAULT_NEON_AUTH_URL
-).replace(/\/$/, '')
+const configuredAuthUrl = new URL(
+  (import.meta.env.VITE_NEON_AUTH_URL as string | undefined) || DEFAULT_NEON_AUTH_URL,
+  window.location.origin,
+).toString().replace(/\/$/, '')
 
 export const authClient = createAuthClient(configuredAuthUrl, {
   adapter: BetterAuthVanillaAdapter({
