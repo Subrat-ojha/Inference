@@ -14,7 +14,7 @@ export type WeekendEvent = {
   registrationRequired?: boolean
 }
 
-export const weekendEventsCheckedOn = '2026-10-17'
+export const weekendEventsCheckedOn = '2026-11-10'
 
 // Standing preference: Hyderabad, Saturday/Sunday, and zero admission cost.
 // Free advance registration is allowed; disclose it and any optional spending.
@@ -328,5 +328,19 @@ export const hyderabadWeekendEvents: WeekendEvent[] = [
     registrationUrl: 'https://luma.com/5psbfa21',
     sourceUrl: 'https://hyderabad2go.in/event/assurance-in-vibe-coding-days-an-ai-dlca-framework-solution-20261114-f72b43',
     checkedOn: weekendEventsCheckedOn,
+  },
+  {
+    id: '11111111-1111-4111-8111-111111111023',
+    title: 'Fun alongside founders · play like a kid, build like a founder',
+    date: '2026-11-14',
+    endDate: '2026-11-14',
+    startTime: '11:00',
+    endTime: '14:00',
+    location: 'The Commons Foodhall, Phoenix Equinox Campus (Gate 2), Gachibowli, Hyderabad',
+    description: 'Stripe Hyderabad Community meetup: three founders share real startup problems, then teams work on fixes and pitch back. Open to students, early professionals, builders, and founders; no experience needed. Lunch and networking are listed in the agenda. Venue details and registration are on the organiser page—confirm before travelling.',
+    admission: 'Free community event · registration required',
+    registrationUrl: 'https://www.stripecommunity.com/public/clubs/hyderabad/events/fun-alongside-founders-play-like-a-kid-build-like-a-founder-3unqljbva6',
+    sourceUrl: 'https://www.stripecommunity.com/public/clubs/hyderabad/events/fun-alongside-founders-play-like-a-kid-build-like-a-founder-3unqljbva6',
+    checkedOn: '2026-11-10',
   },
 ]
